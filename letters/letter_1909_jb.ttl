@@ -1,22 +1,15 @@
-@base <https://github.com/aprilwusiman/SDE-Cassatte> .
-@prefix crm: <https://www.cidoc-crm.org/> .
+@prefix sde-cas: <https://github.com/aprilwusiman/SDE-Cassatte#> .
+@prefix schema: <http://schema.org/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix fabio: <https://sparontologies.github.io/fabio/current/fabio.html> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <https://schema.org/> .
-@prefix sde-cas: <https://github.com/aprilwusiman/SDE-Cassatte> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <http://example.org/ns#> .  # Replace with your own namespace
 
-<Audience> a schema:Audience ;
-    sde-cas:hasfeeling <gratified>,
-        <pleased> .
-
-<beatty> a crm:E21_Person ;
-    sde-cas:hasfeeling <appreciate>, <regret> ;
-    schema:director <carnegie_museum> ;
-    schema:mentions <Audience> .
-
+# The letter entity
 <letter_1909> a fabio:letter ;
     owl:sameAs "https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_10023?manifest=https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_10023"^^xsd:string ;
     schema:recipient <cassatt> ;
@@ -24,43 +17,74 @@
     dc:issued "1909-10-19"^^xsd:date ;
     schema:dateSent "1909-10-19"^^xsd:date ;
     schema:dateReceived "unknown"^^xsd:string ;
-    crm:P129_is_about <Audience> .
+    crm:P129_is_about <Audience> ;
+    sde-cas:hasFeelingEvent _:feeling1, _:feeling2, _:feeling3, _:feeling4 .
 
+# Feeling event - Beatty's regret
+_:feeling1 a sde-cas:FeelingEvent ;
+    sde-cas:feelingHolder <beatty> ;
+    sde-cas:feeling <regret> ;
+    sde-cas:hasTextValue "regret"^^xsd:string .
 
-    
+# Feeling event - Beatty's appreciation
+_:feeling2 a sde-cas:FeelingEvent ;
+    sde-cas:feelingHolder <beatty> ;
+    sde-cas:feeling <appreciate> ;
+    sde-cas:hasTextValue "appreciate."^^xsd:string .
+
+# Feeling event - Audience's gratified feeling
+_:feeling3 a sde-cas:FeelingEvent ;
+    sde-cas:feelingHolder <Audience> ;
+    sde-cas:feeling <gratified> ;
+    sde-cas:hasTextValue "gratified"^^xsd:string .
+
+# Feeling event - Audience's pleased feeling
+_:feeling4 a sde-cas:FeelingEvent ;
+    sde-cas:feelingHolder <Audience> ;
+    sde-cas:feeling <pleased> ;
+    sde-cas:hasTextValue "pleased"^^xsd:string .
+
+# Person entities
+<beatty> a crm:E21_Person ;
+    sde-cas:hasfeeling <appreciate>, <regret> ;
+    schema:director <carnegie_museum> ;
+    schema:mentions <Audience> .
+
 <cassatt> a crm:E21_Person ;
     rdfs:label "American Painter and Printmaker Impressionist"^^xsd:string ;
     owl:sameAs "http://viaf.org/viaf/2478969"^^xsd:string ;
     foaf:member <Impressionists> ;
     crm:P74_has_current_or_former_residence <paris> .
 
-<Impressionists> a foaf:Group
-   owl:sameAs "http://viaf.org/viaf/9148933629554302580"^^xsd:string ;
-   rdfs:label "The Impressionist movement began in France in the 1870s, primarily in Paris, where artists sought to depict modern life and the transient effects of light and atmosphere."^^xsd:string.
+<Audience> a schema:Audience .
 
+# Organization entity
 <carnegie_museum> a schema:Organization ;
-    owl:sameAs "http://viaf.org/viaf/141998508"^^xsd:string . 
+    owl:sameAs "http://viaf.org/viaf/141998508"^^xsd:string .
 
+# Group entity
+<Impressionists> a foaf:Group ;
+    owl:sameAs "http://viaf.org/viaf/9148933629554302580"^^xsd:string ;
+    rdfs:label "The Impressionist movement began in France in the 1870s, primarily in Paris, where artists sought to depict modern life and the transient effects of light and atmosphere."^^xsd:string .
 
-<paris> a <E53_Place> ;
-    rdfs:label "in this letter this place is presumed location of Mary Cassatt(reciepent)."^^xsd:string ;
+# Place entities
+<paris> a crm:E53_Place ;
+    rdfs:label "In this letter, this place is presumed location of Mary Cassatt (recipient)."^^xsd:string ;
     owl:sameAs "http://viaf.org/viaf/158822968"^^xsd:string .
 
-<Pittsburgh> a <E53_Place>
-    rdfs:label,"the place where letter was written and sent."^^xsd:string ;
+<Pittsburgh> a crm:E53_Place ;
+    rdfs:label "The place where the letter was written and sent."^^xsd:string ;
     owl:sameAs "http://viaf.org/viaf/133152143"^^xsd:string .
 
-
+# Feeling types (kept as originally defined)
 <gratified> a sde-cas:positive ;
-    sde-cas:hasTextValue:"gratified"^^xsd:string .
+    sde-cas:hasTextValue "gratified"^^xsd:string .
 
-<pleased> a <sde-cas:positive> ;
-    sde-cas:hasTextValue: "pleased"^^xsd:string .
+<pleased> a sde-cas:positive ;
+    sde-cas:hasTextValue "pleased"^^xsd:string .
 
 <appreciate> a sde-cas:positive ;
     sde-cas:hasTextValue "appreciate."^^xsd:string .
 
 <regret> a sde-cas:negative ;
     sde-cas:hasTextValue "regret"^^xsd:string .
-
-
