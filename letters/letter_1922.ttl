@@ -1,18 +1,21 @@
-@base <https://github.com/aprilwusiman/SDE-Cassatte> .
-@prefix crm: <https://www.cidoc-crm.org/> .
-@prefix fabio: <https://sparontologies.github.io/fabio/current/fabio.html> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <https://schema.org/> .
-@prefix sde-cas: <https://github.com/aprilwusiman/SDE-Cassatte> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sde-cas: <http://example.org/sde-cas#> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix E53_Place: <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+
+
 
 <cassatt> a crm:E21_Person ;
     rdfs:label "American Painter and Printmaker Impressionist"^^xsd:string ;
-    owl:sameAs "http://viaf.org/viaf/2478969"^^xsd:string ;
+    owl:sameAs <http://viaf.org/viaf/2478969> ;
     foaf:member <Impressionists> ;
-    <hasfeeling> <hopeful> ;
+    sde-cas:hasfeeling <hopeful>, <regret> ;
     schema:mentions <carnegie_museum>,
         <degas>,
         <durand_ruel>,
@@ -24,62 +27,66 @@
     crm:P74_has_current_or_former_residence <villa_angeletto> .
 
 <gaudens> a crm:E21_Person ;
-    owl:sameAs "http://viaf.org/viaf/48387789"^^xsd:string ;
+    owl:sameAs <http://viaf.org/viaf/48387789> ;
     schema:director <carnegie_museum> .
-
-<letter_1922> a fabio:letter ;
-    schema:recipient <gaudens>
-    dc:creator <cassatt>
-    dc:issued "1922.12.28"^^xsd:date;
-    schema:dateSent "1922.12.28"^^xsd:date
-    schema:dateReceived """unknown"""^^xsd:string
-    crm:P129_is_about <painting_1891>
-    owl:sameAs "https://www.aaa.si.edu/collections/items/detail/mary-cassatt-letter-to-homer-saintgaudens-15125"
-
-<neutral> a <sde-cas:neutralEmotion> ;
-    <hasTextValue> "I can undetstand that"^^xsd:string,
-        """which was not my opinion"""^^xsd:string .
-
-<regret> a <sde-cas:negative> ;
-    <hasTextValue> "regret"^^xsd:string .
-
-<villa_Angeletto> rdfs:label "Temporary residence of Cassatt in late 1922"^^xsd:string .
 
 <degas> a crm:E21_Person ;
     rdfs:label "French Impressionist artist"^^xsd:string ;
-    owl:sameAs "http://viaf.org/viaf/41863744"^^xsd:string ;
+    owl:sameAs <http://viaf.org/viaf/41863744> ;
     foaf:member <Impressionists> .
-
-<durand_ruel> a schema:Organization ;
-    rdfs:label "Parisian gallery supporting Impressionists"^^xsd:string ;
-    owl:sameAs "http://viaf.org/viaf/153354503"^^xsd:string .
-
-<hopeful> a <sde-cas:positive> ;
-    <hasTextValue> """May it bring you all this troubled world can give of good.""""^^xsd:string .
 
 <morisot> a crm:E21_Person ;
     rdfs:label "French Impressionist painter"^^xsd:string ;
-    owl:sameAs "http://viaf.org/viaf/19789146"^^xsd:string ;
+    owl:sameAs <http://viaf.org/viaf/19789146> ;
     foaf:member <Impressionists> .
 
 <mrs_gaudens> a crm:E21_Person ;
     rdfs:label "Wife of Homer Saint-Gaudens"^^xsd:string ;
-    schema:spouse <gaudens>
+    schema:spouse <gaudens> .
 
-<painting_1891> a <crm:E36_Visual_Item> ;
-    owl:sameAs "https://collection.carnegieart.org/objects/89649ae7-a33d-4f21-b309-ac7e0633b527"^^xsd:string .
+<Impressionists> a foaf:Group ;
+    rdfs:label "The Impressionist movement of artists in late 19th century"^^xsd:string .
 
-<paris> a <E53_Place> ;
-    rdfs:label "gloomy place Cassatt mentioned in the letter said she temporarly left there at the end of 1922."^^xsd:string ;
-    owl:sameAs "http://viaf.org/viaf/158822968"^^xsd:string .
 
-<rome> a <E53_Place> ;
-    rdfs:label """in this letter this place is presumed location of Gaudens(reciepent)."\r
-cassatt,sde-cas:hasfeeling,regret\""""^^xsd:string ;
-    owl:sameAs "http://viaf.org/viaf/243431474"^^xsd:string .
-
-<villa_angeletto> a <E53_Place> .
 
 <carnegie_museum> a schema:Organization ;
-    owl:sameAs "http://viaf.org/viaf/141998508"^^xsd:string .
+    owl:sameAs <http://viaf.org/viaf/141998508> .
 
+<durand_ruel> a schema:Organization ;
+    rdfs:label "Parisian gallery supporting Impressionists"^^xsd:string ;
+    owl:sameAs <http://viaf.org/viaf/153354503> .
+
+<villa_angeletto> a crm:E53_Place ;
+    rdfs:label "Temporary residence of Cassatt in late 1922"^^xsd:string .
+
+<paris> a crm:E53_Place ;
+    rdfs:label "Gloomy place Cassatt mentioned in the letter said she temporarily left there at the end of 1922."^^xsd:string ;
+    owl:sameAs <http://viaf.org/viaf/158822968> .
+
+<rome> a crm:E53_Place ;
+    rdfs:label "In this letter, this place is presumed location of Gaudens (recipient)."^^xsd:string ;
+    owl:sameAs <http://viaf.org/viaf/243431474> .
+
+
+
+<painting_1891> a crm:E36_Visual_Item ;
+    owl:sameAs <https://collection.carnegieart.org/objects/89649ae7-a33d-4f21-b309-ac7e0633b527> .
+
+
+<hopeful> a sde-cas:positive ;
+    sde-cas:hasTextValue "May it bring you all this troubled world can give of good."^^xsd:string .
+
+<neutral> a sde-cas:neutralEmotion ;
+    sde-cas:hasTextValue "I can understand that", "which was not my opinion"^^xsd:string .
+
+<regret> a sde-cas:negative ;
+    sde-cas:hasTextValue "regret"^^xsd:string .
+
+<letter_1922> a fabio:Letter ;
+    schema:recipient <gaudens> ;
+    dc:creator <cassatt> ;
+    dc:issued "1922-12-28"^^xsd:date ;
+    schema:dateSent "1922-12-28"^^xsd:date ;
+    schema:dateReceived "unknown"^^xsd:string ;
+    crm:P129_is_about <painting_1891> ;
+    owl:sameAs <https://www.aaa.si.edu/collections/items/detail/mary-cassatt-letter-to-homer-saintgaude
