@@ -43,8 +43,8 @@
     dc:issued "1905"^^xsd:date;
     schema:dateSent "ca.1905"^^xsd:date,
            dateReceived """unknown"""^^xsd:string;
-    crm:P129_is_about <personal_reflection>
-                      <exhibition>
+    crm:P129_is_about <personal_reflection>，
+                      <exhibition>；
     owl:sameAs "https://ids.si.edu/ids/manifest/edanmdm:AAADCD_item_12873".
 
 
@@ -57,12 +57,12 @@
     foaf:member <Impressionists> .
 
 <Millet> a crm:E21_Person ;
-    rdfs:label "Unclear reference—could be Francis Davis Millet or another painter named Miller"^^xsd:string ;
+    rdfs:label "Unclear reference—could be Francis Davis Millet or another painter named Miller"^^xsd:string .
 
 
 <Courbet> a crm:E21_Person ;
     rdfs:label "French realist painter"^^xsd:string ;
-     owl:sameAs "http://viaf.org/viaf/22160734"^^xsd:string
+     owl:sameAs "http://viaf.org/viaf/22160734"^^xsd:string.
 
 
 
@@ -76,8 +76,8 @@
     owl:sameAs "http://viaf.org/viaf/141998508"^^xsd:string .
 
 <regret> a sde-cas:negative ;
-    sde-cas:hasTextValue "I am sorry"^^xsd:string .
-                         "My hopes have proved vain"^^xsd:string .
+    sde-cas:hasTextValue "I am sorry"^^xsd:string ,
+                         "My hopes have proved vain"^^xsd:string ,
                          "regret I cannot be of use to you in this case"^^xsd:string.
 
 <discomfort> a sde-cas:negative ;
