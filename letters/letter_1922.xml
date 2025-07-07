@@ -1,0 +1,198 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+ <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Letter from Mary Cassatt to Homer Saint-Gaudens</title>
+        <author>Mary Cassatt</author>
+        <respStmt>
+          <resp>Digitized by</resp>
+          <name>Kaosaier Wusiman</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+       <edition n="1">Private edition,<date> April 2025</date></edition>
+       <respStmt>
+          <resp>Edited by</resp>
+          <persName>Kaosaier Wusiman</persName>
+       </respStmt>
+      </editionStmt>
+      <publicationStmt>        
+        <publisher>University of Bologna</publisher>
+        <pubPlace>Bologna</pubPlace>
+        <date when="2025">2025</date>
+        <availability>
+          <p>Open access</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl xml:id="letter">
+          <title level="a">Mary Cassatt letter to Homer Saint-Gaudens</title>
+          <author>Mary Cassatt</author>
+          <publisher>Archives of American Art</publisher>
+          <date when="1922-12-28">1922 Dec. 28</date>
+          <orgName>
+            Carnegie Institute, Museum of Art
+          </orgName>
+          <idno type="digitalID">15125</idno>
+        </bibl>
+        <bibl xml:id="cassattwork1891" cert="high" sameAs="https://collection.carnegieart.org/objects/89649ae7-a33d-4f21-b309-ac7e0633b527">
+         <note>
+         Painting mentioned in the letter. Described as painted in the summer of 1891.
+         Degas commented on its line and color. Now in the Carnegie Museum of Art.
+        </note>
+       </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+     <particDesc>
+       <person xml:id="cassatt" sex="female" sameAs="http://viaf.org/viaf/2478969">
+         <persName>Mary Cassatt</persName>
+         <occupation>Painter and Printmaker</occupation>
+         <note>American artist known for her work in the Impressionist movement and advocacy for women artists.</note>
+       </person>
+       <person xml:id="gaudens" sex="male" sameAs="http://viaf.org/viaf/48387789">
+         <persName>Homer Saint-Gaudens</persName>
+         <occupation> Director of the Carnegie Museum</occupation>
+         <note> American art curator and administrator. He served as director of the Carnegie Museum of Art and played a key role in organizing the Carnegie International exhibitions. 
+         He corresponded with Mary Cassatt regarding acquisitions and exhibitions, indicating his influence in shaping museum collections and public taste.</note>
+       </person>
+       <person xml:id="degas" sex="male" sameAs="http://viaf.org/viaf/41863744">
+         <persName>Edgar Degas</persName>
+         <occupation>Painter</occupation>
+         <note> French Impressionist artist famous for his pastel drawings and oil paintings.
+        Although Degas is regarded as one of the founders of Impressionism, he rejected the term, preferring to be called a realist,and Edgar Degas and Mary Cassatt developed a deep artistic friendship after he invited her to exhibit with the Impressionists in 1879. They shared a passion for modern subjects and collaborated on printmaking.Cassatt acknowledge Degas's influence on her art.</note>
+       </person>
+       <person xml:id="mrs.Gaudens" sex="female" >
+         <persName>Personal name unknown</persName>
+         <occupation>unknown</occupation>
+         <note>Wife of Homer Saint-Gaudens, also friend with Mary Cassatt.</note>
+       </person>
+       <person xml:id="morisot" sex="female" sameAs="http://viaf.org/viaf/19789146">
+         <persName>Berthe Morisot</persName>
+         <occupation>Painter</occupation>
+         <note>French painter and a prominent member of the Impressionist circle in Paris. French critic Gustave Geffroy grouped her alongside Mary Cassatt and Marie Bracquemond as one of the "three great ladies of Impressionism."
+         She was a close friend of the Impressionist painter Édouard Manet, and married Eugène Manet. Their relationship created a close bond of both artistic collaboration and family ties among the Impressionist group.</note>
+       </person>
+       <org xml:id="durandRuel" sameAs="http://viaf.org/viaf/153354503">
+           <orgName>Durand-Ruel Gallery</orgName>
+           <note>Durand-Ruel was a prominent Parisian art gallery in the late 19th and early 20th centuries, known for exhibiting and supporting Impressionist artists such as Monet, Renoir, and Cassatt. The painting mentioned in this letter was exhibited there before being acquired by the Carnegie Institute.</note>
+       </org>
+       <org xml:id="carnegieMuseumofArt" sameAs="http://viaf.org/viaf/141998508">
+         <orgName>
+            Carnegie Institute, Museum of Art
+         </orgName>
+            <note>
+             Founded in 1895 in Pittsburgh, Pennsylvania, the Carnegie Institute, Museum of Art was one of the first American museums devoted to contemporary art. 
+             Homer Saint-Gaudens served as director of the museum during the early 20th century, overseeing acquisitions and exhibitions. 
+             Mary Cassatt's letter to him in 1922 discusses a painting he had purchased for the museum and conveys her reflections on the work's reception by Degas and others.
+             This letter now forms part of: Carnegie Institute, Museum of Art records, 1883-1962, bulk 1885-1962.
+           </note>
+        </org>
+     </particDesc>
+     <correspDesc>
+       <correspAction type="sent">
+        <persName ref="#cassatt">Mary Cassatt</persName>
+        <placeName>Nice,France</placeName> <!-- Mary Cassatt was residing in France in 1905 -->
+        <date cert="low">no stamp or other informationindicated but possibly 1922-12-28</date>
+      </correspAction>
+      <correspAction type="received">
+        <persName ref="#gaudens">Homer Saint-Gaudens</persName>
+        <placeName>Rome,Italy</placeName> <!-- Presumed, based on Carnegie Institute affiliation -->
+        <date cert="low">no stamp or other information indicated</date>
+      </correspAction>
+     </correspDesc>
+    </profileDesc>
+    <encodingDesc>
+      <classDecl>
+        <taxonomy xml:id="feelings">
+         <category xml:id="regret">
+          <catDesc>Regret or reluctance</catDesc>
+         </category>
+        <category xml:id="hopeful">
+         <catDesc>Hope or positive expectation for change or improvement, or good wishes </catDesc>
+        </category>
+        <category xml:id="neutral">
+         <catDesc>Neutral or unemotional expression of her attitude </catDesc>
+        </category>
+       </taxonomy>
+      </classDecl>
+    </encodingDesc>
+   </teiHeader>
+    <facsimile xml:id="fac-1">
+      <graphic url="https://ids.si.edu/ids/manifest/edanmdm:AAADCD_item_15125" type="iiif-manifest"/>
+    </facsimile>
+<text>
+   <body>
+      <div type="letter" xml:id="cassatt-to-Saint-Gaudens-1922">
+        <opener>
+          <dateline>
+            <address>
+              <placeName>
+                <region><lb/>Villa Angeletto</region>
+                <region><lb/>Route de Nice</region>
+                <region><lb/>Grasse ( A. M.)</region>
+                <note>A temporary residence in Grasse (Alpes-Maritimes), southern France, where Mary Cassatt stayed in late 1922.</note>
+              </placeName>
+            </address>
+          </dateline>
+          <dateline>
+            <date when="1922-12-28">December 28,1922</date>
+          </dateline>
+          <salute>
+         <persName ref="#gaudens" >Dear Mr. Saint-Gaudens:</persName>
+         </salute>
+        </opener>
+
+        
+        <div type="body">
+         <p>
+          <lb/>I have taken refuge here from
+          <lb/>the gloom of Paris &amp; I suppose you
+          <lb/>and <persName ref="#mrs.Gaudens">Mrs. Saint-Gaudens</persName> are there. I <seg type="feeling" ana="#regret">regret</seg>
+          <lb/> I shall not have the pleasure of seeing
+          <lb/>you. I hope your committee has found 
+          <lb/> you some good things, but they are
+          <lb/>a Jury.
+         </p>
+         <p>
+          <lb/>It may interest you to know 
+          <lb/>what <persName ref="#degas">Degas</persName> said when he saw<bibl ref="#cassattwork1891"> the
+          <lb/>picture</bibl> you have just bought for <orgName ref="#carnegieMuseumofArt">your 
+          <lb/>Museum</orgName>.It was painted in 1891,
+          <lb/>in the summer. and Degas come to see me
+         </p>
+   
+         <p>
+          <lb/>after he had seen it at <orgName ref="#durandruel">Durand-Rueles</orgName>
+          <lb/>He was chary of praise but he spoke 
+          <lb/>of the drawing of the woman's arm picking
+          <lb/>the fruit and made a familiar gesture 
+          <lb/>indicating the line &amp; said no woman 
+          <lb/> has a right to draw like that. 
+          <lb/>He said the color was like a (?) <seg type="feeling" ana="#neutral"> which was not my opinion</seg>. He had spoken of
+          <lb/>the picture to <persName ref="#morisot">Berthe Morisot</persName> who did not like it. <seg type="feeling" ana="#neutral">I can undetstand that</seg>. If it had been 
+          <lb/>the best line and as weel as well drawn 
+          <lb/>its place in a Museum might show the present generation that
+          <lb/>we worked and learnt out profession, which isn't a bad thing.
+         </p>
+   
+         <p>
+          <lb/>I hope you had a pleasant time in Rome. My best wishes
+          <lb/>to you and Mrs.Saint-Gaudens for the coming year.<seg type="feeling" ana="#hopeful"> May it bring you 
+          <lb/>all this troubled world can give of good.</seg>
+         </p>
+      
+        </div>
+        <closer>
+            <salute>Sincerely yours,</salute>
+            <persName ref="#cassatt"> Mary Cassat</persName>
+            <salute>Sincerely yours,</salute>
+   
+        </closer>
+      </div>
+
+   </body>
+ </text>
+</TEI>
+                        
+                        
