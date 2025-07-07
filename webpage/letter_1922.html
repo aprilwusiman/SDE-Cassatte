@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mary Cassatt Letter Viewer</title>
+  <link rel="stylesheet" href="https://unpkg.com/mirador/dist/css/mirador.min.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 40px 1fr;
+      overflow: hidden;
+      background: white;
+      color: #000;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      border-bottom: 1px solid #ccc;
+      background: white;
+      height: 40px;
+    }
+
+    header button#backBtn {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: black;
+      padding: 0;
+    }
+
+    .main-container {
+      display: grid;
+      grid-template-columns: 1fr 600px 280px;
+      height: 100vh;
+    }
+
+   .mirador-container {
+    width: 80%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    border-right: 1px solid #ccc;
+    display: flex;  
+         /* 关键 */
+   }
+
+   #mirador {
+   flex: 1;               /* 关键 */
+   height: 100%;
+   width: 100%;
+   background-color: lightblue; 
+   }
+
+
+    .content-panel {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: white;
+      color: black;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .metadata-box {
+      border-left: 1px solid #ccc;
+      padding: 15px;
+      background: #f9f9f9;
+      height: 100%;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .metadata-box h2 {
+      margin-top: 0;
+    }
+
+    .metadata-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #888;
+      user-select: none;
+      margin-bottom: 10px;
+    }
+
+    .letter {
+      line-height: 1.8;
+      color: #000;
+    }
+
+    .date-address-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-bottom: 1em;
+    }
+
+    .date-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
+    }
+
+    .date {
+      font-weight: bold;
+      font-family: "Times New Roman", serif;
+    }
+
+  
+
+    .salute {
+      margin-bottom: 1em;
+    }
+
+    .signed {
+      margin-top: 1.5em;
+    }
+
+    .highlight {
+      font-weight: bold;
+    }
+
+    .sup {
+      font-size: 0.7em;
+      vertical-align: super;
+    }
+    .lettercontainer {
+            font-family: "Georgia", serif;
+            line-height: 1.6;
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+            background-color: rgb(255, 255, 255);
+            color: #111;
+          }
+          .container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+          }
+         
+          .letter {
+            max-width: 700px;
+            line-height: 1.6;
+          }
+          .letter p {
+            margin-bottom: 0.8em;
+          }
+          .date {
+            
+            margin-bottom: 0.5em;
+            text-align: right;
+          }
+          .address {
+            
+            margin-bottom: 1em;
+            line-height: 1;
+            font-family: "Georgia", serif; 
+            text-align: left;  
+          }
+          .salute {
+            display: block;
+            margin-bottom: 1em;
+          }
+          .name {
+            display: block;
+            margin-bottom: 1em;
+            text-align: left;
+          }
+          .signed {
+            display: block;
+            margin-top: 1.5em;
+          }
+          .highlight {
+            font-weight: bold;
+          }
+          .sup {
+            font-size: 0.7em;
+            vertical-align: super;
+          }
+
+          /* --- Tooltip-based inline notes --- */
+          .note-wrapper {
+            position: relative;
+            display: inline-block;
+            text-align:right;
+          }
+          .note-inline {
+            display: none;
+            position: absolute;
+            background-color: #eee;
+            border: 1px solid #aaa;
+            padding: 5px 8px;
+            border-radius: 4px;
+            top: 1.5em;
+            left: 0;
+            width: max-content;
+            max-width: 250px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            font-style: italic;
+            font-size: 0.9em;
+            z-index: 1000;
+          }
+          .note-wrapper:hover .note-inline {
+            display: block;
+          }
+
+          /* Hover-based highlighting */
+          .feeling, .person, .place-hover {
+            transition: background-color 0.3s ease;
+          }
+
+          .feeling:hover {
+            background-color: pink;
+          }
+
+          .person:hover {
+            background-color: lightgreen;
+          }
+
+          .place-hover:hover {
+            background-color: #fff9b0;
+          }
+
+          a {
+            color: #003366;
+            text-decoration: none;
+            border-bottom: 1px dotted #003366;
+          }
+          a:hover {
+            color: #c2185b;
+          }
+     .metadata-box {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 700px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6; /* 控制基本行高 */
+}
+
+.metadata-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.metadata-box div {
+  margin-bottom: 12px; 
+}
+
+.metadata-box strong {
+  color: #333;
+}
+
+.metadata-box a button {
+  margin-top: 10px;
+}
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+      }
+
+      .mirador-container, .content-panel, .metadata-box {
+        border: none;
+        height: auto;
+      }
+    }   
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+      }
+
+      .mirador-container, .content-panel, .metadata-box {
+        border: none;
+        height: auto;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <button id="backBtn" aria-label="Back">&larr; Back</button>
+  </header>
+
+  <div class="main-container">
+    <!-- 左栏：Mirador -->
+    <div class="mirador-container">
+      <div id="mirador"></div>
+    </div>
+
+    <!-- 中栏：信件内容 -->
+   <body><div class="container"><div class="letter">
+   <div class="letter">
+        <div page="1">
+         <div class="date">
+          <div class="dateline" style="text-align:left;">
+           <br><br><div class="address">
+              <span class="place-hover" title="A temporary residence in Grasse (Alpes-Maritimes), southern France, where Mary Cassatt stayed in late 1922."><br>Villa Angeletto<br><br>Route de Nice<br><br>Grasse ( A. M.)<br></span>
+            </div>
+          </div>
+          <div class="dateline" style="text-align:left;">December 28,1922<br><br>
+          </div>
+          </div>
+          <div class="salute">
+         <a href="http://viaf.org/viaf/48387789" target="_blank"><span class="person" title="Director of the Carnegie Museum - American art curator and administrator. He served as director of the Carnegie Museum of Art and played a key role in organizing the Carnegie International exhibitions. He corresponded with Mary Cassatt regarding acquisitions and exhibitions, indicating his influence in shaping museum collections and public taste.">Dear Mr. Saint-Gaudens:</span></a>
+         </div>
+
+         <p>
+          <br>I have taken refuge here from
+          <br>the gloom of Paris &amp; I suppose you
+          <br>and <span class="person" title="unknown - Wife of Homer Saint-Gaudens, also friend with Mary Cassatt.">Mrs. Saint-Gaudens</span> are there. I <span class="feeling">regret</span>
+          <br> I shall not have the pleasure of seeing
+          <br>you. I hope your committee has found 
+          <br> you some good things, but they are
+          <br>a Jury.
+         </p>
+         <p>
+          <br>It may interest you to know 
+          <br>what <a href="http://viaf.org/viaf/41863744" target="_blank"><span class="person" title="Painter - French Impressionist artist famous for his pastel drawings and oil paintings. Although Degas is regarded as one of the founders of Impressionism, he rejected the term, preferring to be called a realist,and Edgar Degas and Mary Cassatt developed a deep artistic friendship after he invited her to exhibit with the Impressionists in 1879. They shared a passion for modern subjects and collaborated on printmaking.Cassatt acknowledge Degas's influence on her art.">Degas</span></a> said when he saw<a href="https://collection.carnegieart.org/objects/89649ae7-a33d-4f21-b309-ac7e0633b527" target="_blank"><span class="bibl" title=" - Painting mentioned in the letter. Described as painted in the summer of 1891. Degas commented on its line and color. Now in the Carnegie Museum of Art."> the
+          <br>picture</span></a> you have just bought for <a href="http://viaf.org/viaf/141998508" target="_blank"><span class="org" title=" - Founded in 1895 in Pittsburgh, Pennsylvania, the Carnegie Institute, Museum of Art was one of the first American museums devoted to contemporary art. Homer Saint-Gaudens served as director of the museum during the early 20th century, overseeing acquisitions and exhibitions. Mary Cassatt's letter to him in 1922 discusses a painting he had purchased for the museum and conveys her reflections on the work's reception by Degas and others. This letter now forms part of: Carnegie Institute, Museum of Art records, 1883-1962, bulk 1885-1962.">your 
+          <br>Museum</span></a>.It was painted in 1891,
+          <br>in the summer. and Degas come to see me
+         </p>
+        </div>
+        <div page="2">
+            <p>
+          <br>after he had seen it at <a href="http://viaf.org/viaf/153354503" target="_blank"><span class="org" title=" - Durand-Ruel was a prominent Parisian art gallery in the late 19th and early 20th centuries, known for exhibiting and supporting Impressionist artists such as Monet, Renoir, and Cassatt. The painting mentioned in this letter was exhibited there before being acquired by the Carnegie Institute.">Durand-Rueles</span></a>
+          <br>He was chary of praise but he spoke 
+          <br>of the drawing of the woman's arm picking
+          <br>the fruit and made a familiar gesture 
+          <br>indicating the line &amp; said no woman 
+          <br> has a right to draw like that. 
+          <br>He said the color was like a (?) <span class="feeling"> which was not my opinion</span>. He had spoken of
+          <br>the picture to <a href="http://viaf.org/viaf/19789146" target="_blank"><span class="person" title='Painter - French painter and a prominent member of the Impressionist circle in Paris. French critic Gustave Geffroy grouped her alongside Mary Cassatt and Marie Bracquemond as one of the "three great ladies of Impressionism." She was a close friend of the Impressionist painter Édouard Manet, and married Eugène Manet. Their relationship created a close bond of both artistic collaboration and family ties among the Impressionist group.'>Berthe Morisot</span></a> who did not like it. <span class="feeling">I can undetstand that</span>. If it had been 
+          <br>the best line and as weel as well drawn 
+          <br>its place in a Museum might show the present generation that
+          <br>we worked and learnt out profession, which isn't a bad thing.
+         </p>
+        </div>
+        <div page="3">
+         <p>
+          <br>I hope you had a pleasant time in Rome. My best wishes
+          <br>to you and Mrs.Saint-Gaudens for the coming year.<span class="feeling"> May it bring you 
+          <br>all this troubled world can give of good.</span>
+         </p>
+      
+        
+          <div class="signed">
+            Sincerely yours,
+            <a href="http://viaf.org/viaf/2478969" target="_blank"><span class="person" title="Painter and Printmaker - American artist known for her work in the Impressionist movement and advocacy for women artists."> Mary Cassat</span></a>
+            Sincerely yours,
+   
+          </div>
+    </div></div>
+         <div id="pagination-controls" style="margin-top: 2em; text-align: center;">
+         <button id="prevBtn">Previous</button>
+         <span id="pageIndicator" style="margin: 0 10px;"></span>
+         <button id="nextBtn">Next</button>
+          </div>
+
+   </div></div>
+      
+        
+    
+   
+      <div class="metadata-box" id="metadataBox">
+  <h2>Letter Details</h2>
+
+  <div><strong>From:</strong> <a href="http://viaf.org/viaf/2478969" target="_blank">Mary Cassatt</a></div>
+
+  <div><strong>Create Date:</strong> December 28, 1922</div>
+  <div><strong>Sent Date:</strong> December 28, 1922 (not specified)</div>
+
+  <div><strong>Address:</strong>
+   
+      Villa Angeletto</br>
+      Nice</br>
+      France</br>
+    
+  </div>
+
+  <div><strong>To:</strong> Homer</div>
+  <div><strong>Received Date:</strong> unknown</div>
+
+  <div><strong>Address:</strong>
+    
+      Rome</br>
+      Italy</br>
+    
+  </div>
+
+  <div><strong>Summary:</strong> Beatty, Director of Fine Arts at the Carnegie Museum, responds to Cassatt's Oct. 6th letter responding negatively to his request for a photograph of her portrait.</div>
+
+  <div class="view-doc">
+    <!-- View XML file -->
+    <a href="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/main/letters/letter_1922.xml" target="_blank">
+      <button>View XML File</button>
+    </a>
+
+    <!-- View RDF.ttl file -->
+    <a href="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/main/letters/letter_1922.ttl" target="_blank">
+      <button>View RDF.ttl File</button>
+    </a>
+  </div>
+</div>
+</div>
+  <script src="https://unpkg.com/mirador/dist/mirador.min.js"></script>
+  <script>
+    Mirador.viewer({
+      id: "mirador",
+      windows: [
+        {
+          loadedManifest: "https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_15125?manifest=https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_15125",
+          viewType: "ImageView",
+          sideBarPanel: "info",
+          sideBarVisible: false
+        }
+        
+      ],
+      workspace: {
+        type: "mosaic",
+        showZoomControls: true
+      },
+      workspaceControlPanel: {
+        enabled: true
+      }
+    });
+
+    const toggleBtn = document.getElementById("toggleMetadata");
+    const metadataBox = document.getElementById("metadataBox");
+   
+    document.getElementById("backBtn").addEventListener("click", () => {
+      window.history.back();
+    });
+  </script>
+ <script>
+  const pages = document.querySelectorAll('[page]');
+  let currentPage = 0;
+
+  function showPage(index) {
+    pages.forEach((page, i) => {
+      page.style.display = i === index ? 'block' : 'none';
+    });
+
+    // 更新页码显示
+    document.getElementById('pageIndicator').textContent = `Page ${index + 1} of ${pages.length}`;
+
+    // 控制按钮显示隐藏
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (index === 0) {
+      prevBtn.style.display = 'none';
+    } else {
+      prevBtn.style.display = 'inline-block';
+    }
+
+    if (index === pages.length - 1) {
+      nextBtn.style.display = 'none';
+    } else {
+      nextBtn.style.display = 'inline-block';
+    }
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    if (currentPage > 0) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    if (currentPage < pages.length - 1) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  });
+
+  // 初始显示第一页
+  showPage(currentPage);
+</script>
+</body>
+</html>
