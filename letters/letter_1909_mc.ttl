@@ -1,0 +1,49 @@
+@base <https://github.com/aprilwusiman/SDE-Cassatte> .
+@prefix crm: <https://www.cidoc-crm.org/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix fabio: <https://sparontologies.github.io/fabio/current/fabio.html> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sde-cas: <https://github.com/aprilwusiman/SDE-Cassatte> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<cassatt> a crm:E21_Person ;
+    rdfs:label "American Painter and Printmaker Impressionist"^^xsd:string ;
+    owl:sameAs "http://viaf.org/viaf/2478969"^^xsd:string ;
+    foaf:member <Impressionists> ;
+    sde-cas:hasfeeling <discomfort>,
+                       <regret>.
+
+<letter_1909_mc> a fabio:letter ;
+    owl:sameAs "https://ids.si.edu/ids/manifest/edanmdm:AAADCD_item_6064"^^xsd:string ;
+    schema:recipient <beatty> ;
+    schema:dateSent "1909-09-16"^^xsd:date ;
+    schema:dateReceived "unknown"^^xsd:string ;
+    dc:creator <cassatt> ;
+    dc:issued "1909-09-16"^^xsd:date ;
+    crm:P129_is_about <personal_reflection>,
+                  <exhibition> .
+
+<beatty> a crm:E21_Person ;
+    sde-cas:hasfeeling <discomfort>,
+                       <regret> ;
+    schema:Director <carnegie_museum>,
+                     <carnegie_museum> .      
+    
+<exhibition> a crm: E5 Event.
+<personal_reflection> a sde-cas:PersonalReflection.
+
+
+<carnegie_museum> a schema:Organization ;
+    owl:sameAs "http://viaf.org/viaf/141998508"^^xsd:string .
+
+<regret> a sde-cas:negative ;
+    sde-cas:hasTextValue  ""With regrets I send"^^xsd:string.
+
+<discomfort> a sde-cas:negative ;
+    sde-cas:hasTextValue """unpleasant""""^^xsd:string,
+                          """ disagreeable""""^^xsd:string .
+
+
