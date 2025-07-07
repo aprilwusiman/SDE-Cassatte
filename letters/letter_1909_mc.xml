@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Letter from Mary Cassatt to Mr. Beatty, October 6, [1909]</title>
+        <author>Mary Cassatt</author>
+        <respStmt>
+          <resp>Digitized by</resp>
+          <name>Kaosaier Wusiman</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="1">Private edition,<date> April 2025</date></edition>
+        <respStmt>
+          <resp>Edited by</resp>
+          <persName>Kaosaier Wusiman</persName>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>University of Bologna</publisher>
+        <pubPlace>Bologna</pubPlace>
+        <date when="2025">2025</date>
+        <availability>
+          <p>Open access</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title level="a">Mary Cassatt letter to Mr. Beatty, October 6,1909,</title>
+          <author>Mary Cassatt</author>
+          <publisher>Archives of American Art</publisher>
+          <date when="1909">1909-10-06</date>
+          <orgName xml:id="Carneigie">Carnegie Institute, Museum of Art</orgName>
+          <idno type="digitalID">6064</idno>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <particDesc>
+        <person xml:id="Cassatt" sex="female" sameAs="http://viaf.org/viaf/2478969">
+          <persName>Mary Cassatt</persName>
+          <occupation>Painter and Printmaker</occupation>
+          <note>American artist known for her work in the Impressionist movement and advocacy for women artists.</note>
+        </person>
+        <person xml:id="Beatty" sex="male">
+          <persName>Mr. Beatty</persName>
+          <occupation>Director of Fine Arts at the Carnegie Museum</occupation>
+          <note>Beatty, Director of Fine Arts at the Carnegie Museum; discussed by Cassatt in the context of jury selection.</note>
+        </person>
+      </particDesc>
+      <correspDesc>
+        <correspAction type="sent">
+          <persName ref="#Cassatt">Mary Cassatt</persName>
+          <placeName xml:id="Fra">France</placeName>
+          <date when="1909-10-06">October 6, 1909</date>
+        </correspAction>
+        <correspAction type="received">
+          <persName ref="#Beatty">Mr. Beatty</persName>
+          <placeName xml:id="US">United States</placeName>
+          <date when="1909-10">Likely between 1909 Oct.7 to Oct.19</date>
+        </correspAction>
+      </correspDesc>
+    </profileDesc>
+    <encodingDesc>
+      <classDecl>
+        <taxonomy xml:id="feelings">
+          <category xml:id="discomfort">
+            <catDesc>Negative reaction or emotional discomfort</catDesc>
+          </category>
+          <category xml:id="regret">
+            <catDesc>Regret or reluctance</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+  </teiHeader>
+   <facsimile xml:id="fac-1">
+      <graphic url="https://ids.si.edu/ids/manifest/edanmdm:AAADCD_item_6064" type="iiif-manifest"/>
+    </facsimile>
+  <text>
+    <body>
+      <div type="letter" xml:id="cassatt-to-beatty-1909">
+        <opener>
+          <dateline>
+            <note>1746(unknown information)</note>
+            <date when="1909-10-06">Oct 6<hi rend="sup">th</hi></date>
+            <address>
+              <placeName ref="#Fra">
+                <region><lb/>Mesnil-Beaufresne</region>
+                <region><lb/>Fresneaux-Montchevreuil</region>
+                <region><lb/>Mesnil-Théribus (Oise)</region>
+                <note>The Château de Beaufresne, dating from the late 18th century, was purchased by the American artist Mary Cassatt in 1894, who modernized it with amenities like central heating and electricity. She lived there until her death in 1926, using the restored mill on the property as her engraving studio. Deeply involved in the local village life, Cassatt supported the community, especially children. The château previously belonged to Admiral de Grasse, a key figure in the American War of Independence, and was later inherited by Cassatt’s niece, who donated it to a family services association.</note>
+              </placeName>
+            </address>
+          </dateline>
+          <salute>My Dear <persName ref="#Beatty">Mr. Beatty</persName></salute>
+        </opener>
+        <p>
+          <lb/>&#160;&#160;&#160;&#160;&#160;In reply to your favor 
+          <lb/>of <date when="1909-09-16">Sept. 16<hi rend="sup">th</hi></date> asking for my phot
+          <lb/>ograph, I will forward one, 
+          <lb/>though it would be very<seg type="feeling" ana="#discomfort"> disagreeable</seg>
+          <lb/>to me to have my image in a 
+          <lb/>catalogue or in any publication.
+        </p>
+        <p>
+          <lb/>&#160;It is always<seg type="feeling" ana="#discomfort"> unpleasant</seg> to me
+          <lb/>to see the photograph of the 
+          <lb/>artist accompany their work, that
+          <lb/>has the further tie or with the 
+          <lb/>personal appearance of the author
+          <lb/>of picture or statue. <q>Why should 
+          <lb/>such curiosity—if it exists—be 
+          <lb/><seg type="feeling" ana="#gratified">gratified</seg>?</q>
+        </p>
+        <closer>
+          <seg type="feeling" ana="#regret">With regrets I send.</seg>
+          <salute>Regards. Believe me</salute>
+          <signed><persName ref="#Cassatt">Mary Cassatt</persName></signed>
+        </closer>
+      </div>
+    </body>
+  </text>
+</TEI>
