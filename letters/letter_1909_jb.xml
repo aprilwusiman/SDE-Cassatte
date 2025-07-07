@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>John Wesley Beatty, Pittsburgh, Pa. letter to Mary Cassatt, Paris, France, 1909 Oct. 19</title>
+        <author>Mary Cassatt</author>
+        <respStmt>
+          <resp>Digitized by</resp>
+          <name>Kaosaier Wusiman</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="1">Private edition,<date> April 2025</date></edition>
+        <respStmt>
+          <resp>Edited by</resp>
+          <persName>Kaosaier Wusiman</persName>
+        </respStmt>
+      </editionStmt>
+      <publicationStmt>
+        <publisher>University of Bologna</publisher>
+        <pubPlace>Bologna</pubPlace>
+        <date when="2025">2025</date>
+        <availability>
+          <p>Open access</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title level="a">John Wesley Beatty, Pittsburgh, Pa. letter to Mary Cassatt, Paris, France, 1909 Oct. 19</title>
+          <author>John Wesley Beatty</author>
+          <publisher>Archives of American Art</publisher>
+          <date when="1909">1909-10-19</date>
+          <orgName xml:id="Carneigie">Carnegie Institute, Museum of Art</orgName>
+          <idno type="digitalID">10023</idno>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <particDesc>
+        <person xml:id="Cassatt" sex="female" sameAs="http://viaf.org/viaf/2478969">
+          <persName>Mary Cassatt</persName>
+          <occupation>Painter and Printmaker</occupation>
+          <note>American artist known for her work in the Impressionist movement and advocacy for women artists.</note>
+        </person>
+        <person xml:id="Beatty" sex="male">
+          <persName>Mr. Beatty</persName>
+          <occupation>Exhibition official</occupation>
+          <note>Likely an administrator or organizer for the Carnegie Institute exhibition; discussed by Cassatt in the context of jury selection.</note>
+        </person>
+      </particDesc>
+      <correspDesc>
+        <correspAction type="sent">
+          <persName ref="#Beatty">Mr. Beatty</persName>
+          <placeName xml:id="US">Pittsburgh,United States</placeName>
+          <date when="1909-10-19" cert="high"> 1909 Oct.19</date>
+        </correspAction>
+        <correspAction type="received">
+           <persName ref="#Cassatt">Mary Cassatt</persName>
+          <placeName xml:id="Fra">Paris,France</placeName>
+          <date when="1909" cert="low">unknown</date>
+        </correspAction>
+      </correspDesc>
+    </profileDesc>
+    <encodingDesc>
+      <classDecl>
+        <taxonomy xml:id="feelings">
+          <category xml:id="appreciate">
+            <catDesc>Positive emotional response such as gratitude, admiration, or approval</catDesc>
+          </category>
+          <category xml:id="regret">
+            <catDesc>Regret or reluctance</catDesc>
+          </category>
+          <category xml:id="pleased">
+            <catDesc>A feeling of happiness or satisfaction. This category captures emotions where the person expresses contentment or delight.</catDesc>
+          </category>
+          <category xml:id="gratified">
+            <catDesc>A feeling of being pleased or satisfied as a result of a particular action or outcome. This category often implies a sense of reward or fulfillment.</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+  </teiHeader>
+   <facsimile xml:id="fac-1">
+      <graphic url="" type="iiif-manifest"/>
+    </facsimile>
+  <text>
+    <body>
+      <div type="letter" xml:id="beatty-cassatte-1909">
+       <note>1746(unknown information)</note>
+        <opener>
+          <dateline>
+            <date when="1909-10-06">Oct 19.1909</date>
+            <lb/><name ref="#Cassatt">Miss Mary Cassatt</name>
+            <address>
+              <placeName ref="#Fra">
+                <region><lb/>10, rue de Marignan,</region>
+                <region><lb/>Paris, France</region>
+                <note>  10, rue de Marignan is located in the 8th arrondissement of Paris, near the Champs-Élysées and Avenue Montaigne. During the late 19th and early 20th centuries, this area was a hub for the Parisian upper class and the international art scene, home to numerous galleries, salons, and private residences. Mary Cassatt’s connection to this address reflects her integration into the elite cultural networks of Paris and situates her within the vibrant artistic life of the city.</note>
+              </placeName>
+            </address>
+          </dateline>
+          <salute>My Dear <persName ref="#Cassatt">Miss Cassatt</persName></salute>
+        </opener>
+         <p>
+          <lb/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Your letter of <date when="1909-10-06">October 6 </date>is received.
+          <lb/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;I <seg type="feeling" ana="#appreciate"> appreciate </seg>your attitude in refer-
+          <lb/>ence to the publication of your portait. I also think there
+          <lb/>is much to be said in favor of your point of view, but it 
+          <lb/>is true that a large number of people are<seg type="feeling" ana="#pleased"> pleased </seg>and <seg type="feeling" ana="#gratified"> grati-
+          <lb/>fied</seg> to see the potraite of the men and women who produce
+          <lb/>the work of art they admire. I think it is not wholly idle
+          <lb/>curiosity, but real interest in the personality of the 
+          <lb/>artist. However, as I have said, I appreciate your point
+          <lb/>of view, and<seg type="feeling" ana="#regret"> regret</seg> that you do not see your way clear to
+          <lb/>permit the publication of your photograph.  
+      </p>
+        <closer>
+             &#160;&#160;With very kind regards, I sent
+           <salute><lb/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Very sincerely yours</salute>
+           <signed><lb/><persName ref="#Beatty">(B-JM)&#160;&#160;&#160;DIRECTOR OF FINE ARTS.</persName></signed>
+        </closer>
+      </div>
+    </body>
+  </text>
+</TEI>
