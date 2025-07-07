@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mary Cassatt Letter Viewer</title>
+  <link rel="stylesheet" href="https://unpkg.com/mirador/dist/css/mirador.min.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 40px 1fr;
+      overflow: hidden;
+      background: white;
+      color: #000;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      border-bottom: 1px solid #ccc;
+      background: white;
+      height: 40px;
+    }
+
+    header button#backBtn {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: black;
+      padding: 0;
+    }
+
+    .main-container {
+      display: grid;
+      grid-template-columns: 1fr 600px 280px;
+      height: 100vh;
+    }
+
+   .mirador-container {
+    width: 80%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    border-right: 1px solid #ccc;
+    display: flex;  
+         /* 关键 */
+   }
+
+   #mirador {
+   flex: 1;               /* 关键 */
+   height: 100%;
+   width: 100%;
+   background-color: lightblue; 
+   }
+
+
+    .content-panel {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: white;
+      color: black;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .metadata-box {
+      border-left: 1px solid #ccc;
+      padding: 15px;
+      background: #f9f9f9;
+      height: 100%;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .metadata-box h2 {
+      margin-top: 0;
+    }
+
+    .metadata-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #888;
+      user-select: none;
+      margin-bottom: 10px;
+    }
+
+    .letter {
+      line-height: 1.8;
+      color: #000;
+    }
+
+    .date-address-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-bottom: 1em;
+    }
+
+    .date-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
+    }
+
+    .date {
+      font-weight: bold;
+      font-family: "Times New Roman", serif;
+    }
+
+  
+
+    .salute {
+      margin-bottom: 1em;
+    }
+
+    .signed {
+      margin-top: 1.5em;
+    }
+
+    .highlight {
+      font-weight: bold;
+    }
+
+    .sup {
+      font-size: 0.7em;
+      vertical-align: super;
+    }
+    .lettercontainer {
+            font-family: "Georgia", serif;
+            line-height: 1.6;
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+            background-color: rgb(255, 255, 255);
+            color: #111;
+          }
+          .container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+          }
+         
+          .letter {
+            max-width: 700px;
+            line-height: 1.6;
+          }
+          .letter p {
+            margin-bottom: 0.8em;
+          }
+          .date {
+            
+            margin-bottom: 0.5em;
+            text-align: right;
+          }
+          .address {
+            
+            margin-bottom: 1em;
+            line-height: 1;
+            font-family: "Georgia", serif; 
+            text-align: left;  
+          }
+          .salute {
+            display: block;
+            margin-bottom: 1em;
+          }
+          .name {
+            display: block;
+            margin-bottom: 1em;
+            text-align: left;
+          }
+          .signed {
+            display: block;
+            margin-top: 1.5em;
+          }
+          .highlight {
+            font-weight: bold;
+          }
+          .sup {
+            font-size: 0.7em;
+            vertical-align: super;
+          }
+
+          /* --- Tooltip-based inline notes --- */
+          .note-wrapper {
+            position: relative;
+            display: inline-block;
+            text-align:right;
+          }
+          .note-inline {
+            display: none;
+            position: absolute;
+            background-color: #eee;
+            border: 1px solid #aaa;
+            padding: 5px 8px;
+            border-radius: 4px;
+            top: 1.5em;
+            left: 0;
+            width: max-content;
+            max-width: 250px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            font-style: italic;
+            font-size: 0.9em;
+            z-index: 1000;
+          }
+          .note-wrapper:hover .note-inline {
+            display: block;
+          }
+
+          /* Hover-based highlighting */
+          .feeling, .person, .place-hover {
+            transition: background-color 0.3s ease;
+          }
+
+          .feeling:hover {
+            background-color: pink;
+          }
+
+          .person:hover {
+            background-color: lightgreen;
+          }
+
+          .place-hover:hover {
+            background-color: #fff9b0;
+          }
+
+          a {
+            color: #003366;
+            text-decoration: none;
+            border-bottom: 1px dotted #003366;
+          }
+          a:hover {
+            color: #c2185b;
+          }
+     .metadata-box {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 700px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6; /* 控制基本行高 */
+}
+
+.metadata-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.metadata-box div {
+  margin-bottom: 12px; 
+}
+
+.metadata-box strong {
+  color: #333;
+}
+
+.metadata-box a button {
+  margin-top: 10px;
+}
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+      }
+
+      .mirador-container, .content-panel, .metadata-box {
+        border: none;
+        height: auto;
+      }
+    }   
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+      }
+
+      .mirador-container, .content-panel, .metadata-box {
+        border: none;
+        height: auto;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <button id="backBtn" aria-label="Back">&larr; Back</button>
+  </header>
+
+  <div class="main-container">
+    <!-- 左栏：Mirador -->
+    <div class="mirador-container">
+      <div id="mirador"></div>
+    </div>
+
+    <!-- 中栏：信件内容 -->
+<div class="letter container">
+    <div class="letter">
+      
+       <span class="note-wrapper"><sup title="1746(unknown information)" style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS', 'Noto Color Emoji', sans-serif; font-size: 16px;">🛈</sup><span class="note-inline">1746(unknown information)</span></span>
+        <div class="date">Oct 19.1909<br><br><div class="name">Miss Mary Cassatt</div><div class="address">
+              <span class="place-hover" title="10, rue de Marignan is located in the 8th arrondissement of Paris, near the Champs-Élysées and Avenue Montaigne. During the late 19th and early 20th centuries, this area was a hub for the Parisian upper class and the international art scene, home to numerous galleries, salons, and private residences. Mary Cassatt’s connection to this address reflects her integration into the elite cultural networks of Paris and situates her within the vibrant artistic life of the city."><br>10, rue de Marignan,<br><br>Paris, France<br></span>
+            </div>
+</div>
+<div class="salute">My Dear <a href="http://viaf.org/viaf/2478969" target="_blank"><span class="person" title="Painter and Printmaker - American artist known for her work in the Impressionist movement and advocacy for women artists.">Miss Cassatt</span></a>
+</div>
+         <p>
+          <br>             Your letter of October 6 is received.
+          <br>             I <span class="feeling"> appreciate </span>your attitude in refer-
+          <br>ence to the publication of your portait. I also think there
+          <br>is much to be said in favor of your point of view, but it 
+          <br>is true that a large number of people are<span class="feeling"> pleased </span>and <span class="feeling"> grati-
+          <br>fied</span> to see the potraite of the men and women who produce
+          <br>the work of art they admire. I think it is not wholly idle
+          <br>curiosity, but real interest in the personality of the 
+          <br>artist. However, as I have said, I appreciate your point
+          <br>of view, and<span class="feeling"> regret</span> that you do not see your way clear to
+          <br>permit the publication of your photograph.  
+      </p>
+        <div class="signed">
+                                  With very kind regards, I sent
+           <br>                     Very sincerely yours
+           <br><span class="person" title="Exhibition official - Director of Fine Arts at the Carnegie Museum; discussed by Cassatt in the context of jury selection.">(B-JM)                  DIRECTOR OF FINE ARTS.</span>
+        </div>
+      
+    </div>
+</div class="letter">
+      
+        
+    
+    <div class="metadata-box" id="metadataBox">
+      <h2>Letter Details</h2>
+      <div><strong>From:</strong> John Wesley Beatty</a></div>
+            <div><strong>Create Date:</strong>October 19, 1909</div>
+            <div><strong>Sent Date:</strong>October 19, 1909 (not specified)</div>
+            <div><strong>Address:</strong>
+                                        Pittsburgh</br>
+                                        United States </br></Address></strong></div>
+      <div><strong>To:</strong><a href="http://viaf.org/viaf/2478969">Mary Cassatt</a></div>
+            <div><strong>Recieved Date:</strong>unknown</div>
+            <div><strong>Address:</strong>Paris,France</br>
+     
+
+       <div><strong>Summary</strong>:  Beatty, Director of Fine Arts at the Carnegie Museum, responds to Cassatt's Oct. 6th letter responding negatively to his request for a photograph of her portrait.</div>
+    <div class = "view-doc">
+  <!-- View XML file -->
+  <a href="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/main/letters/letter_1909_jb.xml" target="_blank">
+    <button>View XML File</button>
+  </a>
+
+  <!-- View RDF.ttl file -->
+  <a href="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/main/letters/letter_1909_jb.ttl" target="_blank">
+    <button>View RDF.ttl File</button>
+  </a>
+</div>
+  <script src="https://unpkg.com/mirador/dist/mirador.min.js"></script>
+  <script>
+    Mirador.viewer({
+      id: "mirador",
+      windows: [
+        {
+          loadedManifest: "https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_10023?manifest=https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_10023",
+          viewType: "ImageView",
+          sideBarPanel: "info",
+          sideBarVisible: false
+        }
+      ],
+      workspace: {
+        type: "mosiac",
+        showZoomControls: true
+      },
+      workspaceControlPanel: {
+        enabled: false
+      }
+    });
+
+    const toggleBtn = document.getElementById("toggleMetadata");
+    const metadataBox = document.getElementById("metadataBox");
+    toggleBtn.addEventListener("click", () => {
+      const collapsed = metadataBox.classList.toggle("collapsed");
+      toggleBtn.textContent = collapsed ? "展开 ▼" : "收起 ▲";
+      toggleBtn.setAttribute("aria-expanded", !collapsed);
+    });
+
+    document.getElementById("backBtn").addEventListener("click", () => {
+      window.history.back();
+    });
+  </script>
+</body>
+</html>
