@@ -1,0 +1,230 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Letter from Mary Cassatt to Albert Dakin Gihon</title>
+        <author>Mary Cassatt</author>
+        <respStmt>
+          <resp>Digitized by</resp>
+          <name>Kaosaier Wusiman</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+       <edition n="1">Private edition,<date> April 2025</date></edition>
+       <respStmt>
+          <resp>Edited by</resp>
+          <persName>Kaosaier Wusiman</persName>
+       </respStmt>
+      </editionStmt>
+      <publicationStmt>        
+        <publisher>University of Bologna</publisher>
+        <pubPlace>Bologna</pubPlace>
+        <date when="2025">2025</date>
+        <availability>
+          <p>Open access</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title level="a">Mary Cassatt letter to Albert Dakin Gihon</title>
+          <author>Mary Cassatt</author>
+          <publisher>Archives of American Art</publisher>
+          <date when="1905">ca. 1905</date>
+          <orgName>Carnegie Institute, Museum of Art</orgName>
+          <idno type="digitalID">12876</idno>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+     <particDesc>
+       <person xml:id="Cassatt" sex="female" sameAs="http://viaf.org/viaf/2478969">
+         <persName>Mary Cassatt</persName>
+         <occupation>Painter and Printmaker</occupation>
+         <note>American artist known for her work in the Impressionist movement and advocacy for women artists.</note>
+       </person>
+       <person xml:id="Gihon" sex="male" sameAs="http://viaf.org/viaf/339150323701609970037">
+         <persName>Albert Dakin Gihon</persName>
+         <occupation>Art writer or exhibition correspondent (probable)</occupation>
+         <note>Recipient of Cassatt's letter, possibly involved in exhibition organization or critique; further biographical information unknown.</note>
+       </person>
+       <person xml:id="Beatty" sex="male">
+         <persName>Mr. Beatty</persName>
+         <occupation>Exhibition official</occupation>
+         <note>Likely an administrator or organizer for the Carnegie Institute exhibition; discussed by Cassatt in the context of jury selection.</note>
+       </person>
+       <person xml:id="Whistler" sex="male" sameAs="https://viaf.org/en/viaf/46804212">
+         <persName>James Abbott McNeill Whistler</persName>
+         <occupation>Artist</occupation>
+         <note>Renowned American artist who suggested Cassatt's involvement in the Carnegie exhibition jury.</note>
+       </person>
+       <person xml:id="Corot" sex="male" sameAs="http://viaf.org/viaf/4940255">
+         <persName>Jean-Baptiste-Camille Corot</persName>
+         <occupation>Painter</occupation>
+         <note>French landscape and portrait painter, mentioned as an example of artists rejected by juried exhibitions.</note>
+       </person>
+       <person xml:id="Courbet" sex="male" sameAs="http://viaf.org/viaf/22160734">
+         <persName>Gustave Courbet</persName>
+         <occupation>Painter</occupation>
+         <note>French realist painter, cited by Cassatt as another artist marginalized by the jury system.</note>
+       </person>
+       <person xml:id="Millet" sex="male">
+         <occupation>Painter</occupation>
+         <note>Unclear reference—could be Francis Davis Millet or another painter named Miller.</note>
+       </person>
+     </particDesc>
+     <correspDesc>
+       <correspAction type="sent">
+        <persName ref="#Cassatt">Mary Cassatt</persName>
+        <placeName>France</placeName> <!-- Mary Cassatt was residing in France in 1905 -->
+        <date when="1905-09-13">September 13, 1905</date>
+      </correspAction>
+      <correspAction type="received">
+        <persName ref="#Gihon">Albert Dakin Gihon</persName>
+        <placeName>United States</placeName> <!-- Presumed, based on Carnegie Institute affiliation -->
+        <date>unknown</date>
+      </correspAction>
+     </correspDesc>
+    </profileDesc>
+    <encodingDesc>
+      <classDecl>
+        <taxonomy xml:id="feelings">
+          <category xml:id="discomfort">
+            <catDesc>Negative reaction or emotional discomfort</catDesc>
+          </category>
+          <category xml:id="regret">
+            <catDesc>Regret or reluctance</catDesc>
+          </category>
+          <category xml:id="critic">
+            <catDesc>Critical feeling, expressing judgment or disapproval</catDesc>
+          </category>
+          <category xml:id="hopeful">
+            <catDesc>Hope or positive expectation for change or improvement</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+   </teiHeader>
+  <facsimile xml:id="fac-1">
+      <graphic url="https://ids.si.edu/ids/manifest/edanmdm:AAADCD_item_12873" type="iiif-manifest"/>
+  </facsimile>
+<text>
+    <body>
+     <pb/>
+      <div type="letter" xml:id="cassatt-to-gihon-1905">
+        <note xml:id="stamp1">
+         <p>
+          Referred 
+         <lb/><name>By C.S.L.</name>.
+         </p>
+        </note>
+        <note>79 A 66 (unknown information)</note>
+        <opener>
+          <dateline>
+            <address>
+              <placeName ref="#Fra">
+                <region><lb/>Mesnil-Beaufresne</region>
+                <region><lb/>Fresneaux-Montchevreuil</region>
+                <region><lb/>Mesnil-Théribus (Oise)</region>
+                <note>The Château de Beaufresne, dating from the late 18th century, was purchased by the American artist Mary Cassatt in 1894, who modernized it with amenities like central heating and electricity. She lived there until her death in 1926, using the restored mill on the property as her engraving studio. Deeply involved in the local village life, Cassatt supported the community, especially children. The château previously belonged to Admiral de Grasse, a key figure in the American War of Independence, and was later inherited by Cassatt’s niece, who donated it to a family services association.</note>
+              </placeName>
+            </address>
+          </dateline>
+          <dateline>
+            <date when="1905-09-13">Sept. 13th</date>
+          </dateline>
+          <salute>
+         <persName ref="#Gihon" >Dear Mr. Gihon:</persName>
+         </salute>
+        </opener>
+        <div type="body">
+          <p>
+           <lb/>&#160;&#160;&#160;&#160;Your card has just
+           <lb/> reached me. <seg type="feeling" ana="#regret">I am sorry</seg> I
+           <lb/>cannot be of any use to
+           <lb/>you in this matter of 
+           <lb/>the Ex-hibition. The truth 
+           <lb/>is I have not served on the 
+           <lb/>jury &amp; never will serve 
+           <lb/>on any jury, nor be the 
+           <lb/>means of refusing works of another painter.
+           <lb/> <seg type="feeling" ana="#discomfort">I think the whole system
+           <lb/>wrong </seg> &amp; have written to 
+           <lb/><persName ref="#Beatty">Mr.Beatty</persName> requesting him 
+           <lb/>to withdraw my name.
+          </p>
+
+     <pb/>
+
+          <p>
+           <lb/>You may be confused after
+           <lb/>this statement that my
+           <lb/>name should have appeared
+           <lb/>as a member of the jury.
+           <lb/>Some years ago<persName ref="#Beatty"> Mr. Beatty</persName>
+           <lb/>told me that <persName ref="#Whistler">Whistler</persName> 
+           <lb/>had suggested my being
+           <lb/>, it was I think
+           <lb/>the first year of the
+           <lb/>exhibitions at the Carnegie
+           <lb/>Institute, I accepted on
+           <lb/>the condition I was never asked
+           <lb/>to serve, &amp; in the hopes of
+           <lb/>being able to get the Trustees
+           <lb/>to invest some of
+           <lb/>of genuine Old Masters —
+           <lb/>thus from the beginning
+           <lb/>of a Museum, &amp; thereby
+          </p>
+          
+     <pb/>
+
+          <p>
+           <lb/>gone to American artists.
+           <lb/>Some of the advantages of
+           <lb/>these talents we thus see it.
+           <lb/><seg type="feeling" ana="#regret">My hopes have proved vain</seg>;
+           <lb/>not such pictures have
+           <lb/>been chosen by the Institute,
+           <lb/>they have gone to foreign
+           <lb/>collections.
+          </p>
+          <p>
+           <lb/>&#160;&#160;&#160;As for this year's
+           <lb/>exhibition, I quote from
+           <lb/>a letter, that only one American
+           <lb/>was on the jury &amp; only
+           <lb/>five American pictures were
+           <lb/>accepted. The American artist
+           <lb/>have the remedy in their
+           <lb/>own hands. Let them refuse
+           <lb/>to send until the conditions
+           <lb/>of admission are changed.
+           <lb/>Our group were the
+           <lb/>founders of the “Independent”.
+          </p>
+
+     <pb/>
+          <p>
+           <lb/>After we gave up our exhibition the name and principles
+           <lb/>were adopted by a younger set and have prospered. Our
+           <lb/>profession is enslaved, it is for us to set it free. The
+           <lb/>jury <seg type="feeling" ana="#critic">system has proved a failure</seg> since hardly a single
+           <lb/>painter of talent in France in the last fifty years has not
+           <lb/>been a victim to the system. Amongst those refused again
+           <lb/>and again are <persName ref="#Corot">Corot</persName>, <persName ref="#Courbet">Courbet</persName>,  <persName ref="#Millet">Millet</persName> and hosts of others.
+           <lb/>These men were kept back for years. We need a new system,
+           <lb/>the old one is used up. I <seg ana="#hopeful">hope you</seg> will help to manufacture
+           <lb/>a new one; I <seg type="feeling" ana="#regret">regret I cannot be of use to you in this case</seg>
+           <lb/>but if it helps to warn you against juries I will regret
+           <lb/>it less. Belive me very sincerely.
+          </p>
+
+        </div>
+        <closer>
+          <salute>Yours</salute>
+          <persName ref="#Cassatt"> Mary Cassat</persName>
+        </closer>
+      </div>
+    </body>
+  </text>
+</TEI>
