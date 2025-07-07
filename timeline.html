@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mary Cassatt Timeline & Letters</title>
+  <style>
+
+body {
+  font-family: 'Georgia', serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #4d2c91;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+}
+
+.timeline-item {
+  background: white;
+  border-left: 4px solid #4d2c91;
+  margin: 20px 0;
+  padding: 20px 30px;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -10px;
+  width: 14px;
+  height: 14px;
+  background: #4d2c91;
+  border-radius: 50%;
+}
+
+.timeline-item h3 {
+  margin-top: 0;
+  font-size: 1.4em;
+}
+
+.timeline-item img {
+  max-width: 100%;
+  margin-top: 10px;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.timeline-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(109, 77, 232, 0.4);
+}
+
+.letter-card {
+  background: #f4f0fc;
+  border-left-color: #9b59b6;
+}
+
+.letter-card a {
+  color: #4d2c91;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+a {
+  color: #4d2c91;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+img {
+  color: #4d2c91;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+a:hover {
+  color: #6a4de8;
+  text-decoration: underline;
+}
+
+.timeline-item img {
+  display: none; /* 隐藏默认图片 */
+}
+
+.preview-box {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  max-width: 300px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.preview-box img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <h1>Mary Cassatt: Life & Letters Timeline</h1>
+
+  <div class="timeline">
+
+    <div class="timeline-item" data-image="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/refs/heads/main/significance-of-self-portrait-727x1024.jpg">
+      <h3>May 22, 1844 · Birth</h3>
+      <p>Mary Stevenson Cassatt is born in Allegheny City, Pennsylvania (now part of Pittsburgh). She grows up in a wealthy family with a strong emphasis on education and travel.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>1860–1865 · Education in Philadelphia</h3>
+      <p>She studies painting at the <a href="https://www.pafa.org/"> Academy of the Fine Arts</a>. Frustrated by the limitations placed on female students, she decides to move to Europe.</p>
+    </div>
+
+    <div class="timeline-item" data-image="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/refs/heads/main/jean-leon-gerome-by-nadar.jpg">
+      <h3>1866 · Move to Paris</h3>
+      <p>Cassatt travels to France to study the Old Masters and modern techniques. She copies paintings at the Louvre and studies privately with Jean-Léon Gérôme.</p>
+    </div>
+
+    <div class="timeline-item" data-image="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/refs/heads/main/3687-Mary-Cassatt-at-the-Louvre.jpg">
+      <h3>1877 · Joins the Impressionists</h3>
+      <p>Edgar Degas invited Cassatt to exhibit with the Impressionists. She became one of the few American women associated with the movement, regularly contributing to their exhibitions. The image below is a portrait of Mary Cassatt painted by Degas titled "Mary Cassatt at the Louvre."</p>
+    </div>
+
+    <div class="timeline-item letter-card">
+      <h3>September 13, 1905 · Letter to Albert Dakin Gihon</h3>
+      <p>Cassatt expresses her personal reflections and refuses to serve on an art jury.</p>
+      <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1909_mc.html" target="_blank" rel="noopener noreferrer">Read More</a>
+    </div>
+
+
+    <div class="timeline-item">
+     <h3>1906 · Exhibits in Paris</h3>
+     <p>Cassatt's paintings are included in <a href="https://www.jstor.org/stable/25609869?seq=1"> at the Durand-Ruel Gallery</a>, reinforcing her influence in the European art market.</p>
+     </div>
+
+   <div class="timeline-item" data-image="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/refs/heads/main/Young_Mother_Sewing_MET_DP139632.jpg">
+    <h3>1907 · Creates "Young Mother Sewing"</h3>
+    <p>Cassatt deepens her exploration of motherhood and intimacy through one of her last major works.</p>
+   </div>
+
+    <div class="timeline-item letter-card">
+      <h3>September 16, 1909 · Letter to John Wesley Beatty</h3>
+      <p>She replies to Beatty's request for a photograph, indicating her selective public presence.</p>
+      <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1909_mc.html" target="_blank" rel="noopener noreferrer">Read More</a>
+    </div>
+
+    <div class="timeline-item letter-card">
+      <h3>October 19, 1909 · Letter from John Wesley Beatty</h3>
+      <p>Beatty responds to Cassatt's October 6 letter, continuing their professional dialogue about exhibitions.</p>
+      <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1909_jb.html" target="_blank" rel="noopener noreferrer">Read More</a>
+    </div>
+
+   <div class="timeline-item"> 
+      <h3>1915 · Ends Painting Career</h3>
+       <p>Château de Beaufresne, France</br>
+     Due to failing eyesight caused by diabetes and cataracts, Cassatt stops painting and retreats to her estate.</p>
+   </div>
+
+    <div class="timeline-item letter-card">
+      <h3>December 12, 1922 · Letter to Homer Saint-Gaudens</h3>
+      <p>Cassatt reflects on the opinions of Degas and Berthe Morisot about her work, showing her continued engagement with the Impressionist legacy.</p>
+      <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1922.html" target="_blank" rel="noopener noreferrer">Read More</a>
+    </div>
+
+    <div class="timeline-item">
+      <h3>1921-1926 · Final Years</h3>
+      <p>By 1915, Cassatt is almost completely blind due to cataracts and diabetes. She stops painting and lives quietly in Château de Beaufresne, near Paris.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>June 14, 1926 · Death</h3>
+      <p>Mary Cassatt dies in France at age 82. She is buried at the family vault in Mesnil-Théribus, near her estate.</p>
+    </div>
+
+  </div>
+<div id="preview" class="preview-box"></div>
+</body>
+<script>
+const previewBox = document.getElementById("preview");
+
+
+document.addEventListener("mousemove", (e) => {
+  previewBox.style.top = `${e.pageY + 15}px`;
+  previewBox.style.left = `${e.pageX + 15}px`;
+});
+
+
+document.querySelectorAll(".timeline-item").forEach(item => {
+  const imgUrl = item.getAttribute("data-image");
+  if (imgUrl) {
+    item.addEventListener("mouseenter", () => {
+      previewBox.innerHTML = `<img src="${imgUrl}" alt="Preview" />`;
+      previewBox.style.display = "block";
+    });
+    item.addEventListener("mouseleave", () => {
+      previewBox.style.display = "none";
+    });
+  }
+});
+</script>
+</html>
