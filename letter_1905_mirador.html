@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mary Cassatt Letter Viewer</title>
+  <link rel="stylesheet" href="https://unpkg.com/mirador/dist/css/mirador.min.css" />
+  <style>
+     body {
+      margin: 0;
+      padding: 0;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 40px 1fr;
+      overflow: hidden;
+      background: white;
+      color: #000;
+    }
+    
+    footer {
+      height: 40px;
+      background-color: #f0f0f0;
+       border-top: 1px solid #ccc;
+       display: flex;
+        align-items: center;
+       justify-content: center;
+      font-size: 14px;
+       color: #555;
+       }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      border-bottom: 1px solid #ffffff;
+      background: rgb(255, 255, 255);
+      height: 40px;
+    }
+
+    header button#backBtn {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: black;
+      padding: 0;
+    }
+
+    .main-container {
+      display: grid;
+      grid-template-columns: 1fr 600px 280px;
+      height: 100%;
+    }
+
+   .mirador-container {
+    width: 80%;
+    height: 100%;
+    overflow: hidden;
+    position: relative ;
+    border-right: 1px solid #ffffff;
+    display: flex;         /* 关键 */
+   }
+
+   #mirador {
+   position: absolute;
+   align-items: center;        /* 关键 */
+   height: 100%;
+   width: 100%;
+   }
+
+
+    .content-panel {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: white;
+      color: black;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .metadata-box {
+      border-left: 1px solid #ccc;
+      padding: 15px;
+      background: #f9f9f9;
+      height: 100%;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .metadata-box h2 {
+      margin-top: 0;
+    }
+
+    .metadata-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      color: #888;
+      user-select: none;
+      margin-bottom: 10px;
+    }
+
+    .letter {
+      line-height: 1.8;
+      color: #000;
+    }
+
+    .date-address-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-bottom: 1em;
+    }
+
+    .date-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
+    }
+
+    .date {
+      font-weight: bold;
+      font-family: "Times New Roman", serif;
+    }
+
+  
+
+    .salute {
+      margin-bottom: 1em;
+    }
+
+    .signed {
+      margin-top: 1.5em;
+    }
+
+    .highlight {
+      font-weight: bold;
+    }
+
+    .sup {
+      font-size: 0.7em;
+      vertical-align: super;
+    }
+    .lettercontainer {
+            font-family: "Georgia", serif;
+            line-height: 1.6;
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+            background-color: rgb(234, 221, 187);
+            color: #111;
+          }
+          .container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+          }
+         
+          .letter {
+            max-width: 700px;
+            line-height: 1.6;
+          }
+          .letter p {
+            margin-bottom: 0.8em;
+          }
+          .date {
+            font-weight: bold;
+            margin-bottom: 0.5em;
+          }
+          .address {
+            font-weight: bold;
+            margin-bottom: 1em;
+            line-height: 1;
+            font-family: "Times New Roman", serif; 
+            text-align: right;  
+          }
+          .salute {
+            display: block;
+            margin-bottom: 1em;
+          }
+          .signed {
+            display: block;
+            margin-top: 1.5em;
+          }
+          .highlight {
+            font-weight: bold;
+          }
+          .sup {
+            font-size: 0.7em;
+            vertical-align: super;
+          }
+
+          /* --- Tooltip-based inline notes --- */
+          .note-wrapper {
+            position: relative;
+            display: inline-block;
+          }
+          .note-inline {
+            display: none;
+            position: absolute;
+            top: 1.5em;
+            left: 0;
+            width: 300px;
+            background-color: #fff8dc;
+            color: #000;
+            border: 1px solid #aaa;
+            padding: 0.5em;
+            font-style: italic;
+            font-size: 0.95em;
+            line-height: 1.4;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          }
+          .note-wrapper:hover .note-inline {
+            display: block;
+          }
+          
+          .feeling, .person, .place-hover, .bibl, .org {
+           transition: background-color 0.3s ease;
+            }
+
+          .feeling:hover {
+           background-color: pink;
+           }
+
+         .person:hover {
+          background-color: lightgreen;
+          }
+
+        .place-hover:hover {
+          background-color: #fff9b0;
+         }
+
+        .bibl:hover {
+        background-color: rgb(210, 129, 129);
+        }
+
+        .org:hover {
+         background-color:rgb(95, 103, 161);
+        }
+        
+       #pagination-controls {
+           margin-top: 2em;
+           position: absolute;
+           bottom: 45px;;
+           text-align: center;
+           }
+
+         #pagination-controls button {
+         padding: 0.3em 0.8em;   /* 减小内边距 */
+         font-size: 0.8em;       /* 减小字体 */
+         margin: 0 0.3em;        /* 减小左右间距 */
+         cursor: pointer;
+         border: 1px solid #ccc;
+         background-color: #f9f9f9;
+         border-radius: 4px;     /* 可以稍微调小圆角 */
+         }
+
+        #pagination-controls button:hover {
+         background-color: #e0e0e0;
+        }
+
+        #pageIndicator {
+         font-weight: bold;
+         font-size: 0.5em;
+         }
+    .metadata-box {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 700px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6; /* 控制基本行高 */
+}
+
+.metadata-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.metadata-box div {
+  margin-bottom: 12px; /* 每个信息项之间的间距 */
+}
+
+.metadata-box strong {
+  color: #333;
+}
+
+.metadata-box a button {
+  margin-top: 10px;
+}
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+      }
+
+      .mirador-container, .content-panel, .metadata-box {
+        border: none;
+        height: auto;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <button id="backBtn" aria-label="Back">&larr; Back</button>
+  </header>
+
+  <div class="main-container">
+    <!-- 左栏：Mirador -->
+    <div class="mirador-container">
+      <div id="mirador"></div>
+    </div>
+
+    <!-- 中栏：信件内容 -->
+<div class="letter container">
+ <div class="letter">
+      
+      <div page="1"> 
+         <span class="note-wrapper"><sup title="Referred By C.S.L.." style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS', 'Noto Color Emoji', sans-serif; font-size: 16px;">🛈</sup><span class="note-inline">
+         
+           Referred 
+          By C.S.L..
+         
+          </span></span>
+          <span class="note-wrapper"><sup title="79 A 66 (unknown information)" style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS', 'Noto Color Emoji', sans-serif; font-size: 16px;">🛈</sup><span class="note-inline">79 A 66 (unknown information)</span></span>
+          <div class="date">
+          <div class="dateline" style="text-align:left;">
+          <br><br><div class="address">
+              <span class="place-hover" title="The Château de Beaufresne, dating from the late 18th century, was purchased by the American artist Mary Cassatt in 1894, who modernized it with amenities like central heating and electricity. She lived there until her death in 1926, using the restored mill on the property as her engraving studio. Deeply involved in the local village life, Cassatt supported the community, especially children. The château previously belonged to Admiral de Grasse, a key figure in the American War of Independence, and was later inherited by Cassatt’s niece, who donated it to a family services association."><br>Mesnil-Beaufresne<br><br>Fresneaux-Montchevreuil<br><br>Mesnil-Théribus (Oise)<br></span>
+            </div>
+          </div>
+          <div class="dateline" style="text-align:left;">Sept. 13th<br><br>
+          </div>
+          </div>
+         <div class="salute">
+         <a href="http://viaf.org/viaf/339150323701609970037" target="_blank"><span class="person" title="Art writer or exhibition correspondent (probable) - Recipient of Cassatt's letter, possibly involved in exhibition organization or critique; further biographical information unknown.">Dear Mr. Gihon:</span></a>
+         </div>
+          <p>
+           <br>    Your card has just
+           <br> reached me. <span class="feeling">I am sorry</span> I
+           <br>cannot be of any use to
+           <br>you in this matter of 
+           <br>the Ex-hibition. The truth 
+           <br>is I have not served on the 
+           <br>jury &amp; never will serve 
+           <br>on any jury, nor be the 
+           <br>means of refusing works of another painter.
+           <br> <span class="feeling">I think the whole system
+           <br>wrong </span> &amp; have written to 
+           <br><span class="person" title="Exhibition official - Likely an administrator or organizer for the Carnegie Institute exhibition; discussed by Cassatt in the context of jury selection.">Mr.Beatty</span> requesting him 
+           <br>to withdraw my name.
+          </p>
+      </div> 
+          
+      <div page="2">
+          <p>
+           <br>You may be confused after
+           <br>this statement that my
+           <br>name should have appeared
+           <br>as a member of the jury.
+           <br>Some years ago<span class="person" title="Exhibition official - Likely an administrator or organizer for the Carnegie Institute exhibition; discussed by Cassatt in the context of jury selection."> Mr. Beatty</span>
+           <br>told me that <a href="https://viaf.org/en/viaf/46804212" target="_blank"><span class="person" title="Artist - Renowned American artist who suggested Cassatt's involvement in the Carnegie exhibition jury.">Whistler</span></a> 
+           <br>had suggested my being
+           <br>, it was I think
+           <br>the first year of the
+           <br>exhibitions at the Carnegie
+           <br>Institute, I accepted on
+           <br>the condition I was never asked
+           <br>to serve, &amp; in the hopes of
+           <br>being able to get the Trustees
+           <br>to invest some of
+           <br>of genuine Old Masters —
+           <br>thus from the beginning
+           <br>of a Museum, &amp; thereby
+          </p>
+      </div>
+          
+      <div page="3">
+          <p>
+           <br>gone to American artists.
+           <br>Some of the advantages of
+           <br>these talents we thus see it.
+           <br><span class="feeling">My hopes have proved vain</span>;
+           <br>not such pictures have
+           <br>been chosen by the Institute,
+           <br>they have gone to foreign
+           <br>collections.
+          </p>
+          <p>
+           <br>   As for this year's
+           <br>exhibition, I quote from
+           <br>a letter, that only one American
+           <br>was on the jury &amp; only
+           <br>five American pictures were
+           <br>accepted. The American artist
+           <br>have the remedy in their
+           <br>own hands. Let them refuse
+           <br>to send until the conditions
+           <br>of admission are changed.
+           <br>Our group were the
+           <br>founders of the “Independent”.
+          </p>
+      </div>
+        
+      <div page="4">
+          <p>
+           <br>After we gave up our exhibition the name and principles
+           <br>were adopted by a younger set and have prospered. Our
+           <br>profession is enslaved, it is for us to set it free. The
+           <br>jury <span class="feeling">system has proved a failure</span> since hardly a single
+           <br>painter of talent in France in the last fifty years has not
+           <br>been a victim to the system. Amongst those refused again
+           <br>and again are <a href="http://viaf.org/viaf/4940255" target="_blank"><span class="person" title="Painter - French landscape and portrait painter, mentioned as an example of artists rejected by juried exhibitions.">Corot</span></a>, <a href="http://viaf.org/viaf/22160734" target="_blank"><span class="person" title="Painter - French realist painter, cited by Cassatt as another artist marginalized by the jury system.">Courbet</span></a>,  <span class="person" title="Painter - Unclear reference—could be Francis Davis Millet or another painter named Miller.">Millet</span> and hosts of others.
+           <br>These men were kept back for years. We need a new system,
+           <br>the old one is used up. I hope you will help to manufacture
+           <br>a new one; I <span class="feeling">regret I cannot be of use to you in this case</span>
+           <br>but if it helps to warn you against juries I will regret
+           <br>it less. Belive me very sincerely.
+       
+        <div class="signed">
+          Yours
+          <a href="http://viaf.org/viaf/2478969" target="_blank"><span class="person" title="Painter and Printmaker - American artist known for her work in the Impressionist movement and advocacy for women artists."> Mary Cassat</span></a>
+        </div>
+      
+    </div></div>
+ <div id="pagination-controls" style="margin-top: 2em; text-align: center;">
+  <button id="prevBtn">Previous</button>
+  <span id="pageIndicator" style="margin: 0 10px;"></span>
+  <button id="nextBtn">Next</button>
+ </div>
+
+ </div>
+    <!-- 右栏：Meta Data -->
+    <div class="metadata-box" id="metadataBox">
+      <h2>Letter Details</h2>
+      <div ref="http://viaf.org/viaf/2478969"><strong>From:</strong> Mary Cassatt</div>
+            <div><strong>Create Date:</strong>September 13, 1905</div>
+            <div><strong>Sent Date:</strong>September 13, 1905 (not specified)</div>
+            <div><strong>Address:</strong>Mesnil-Beaufresne</br>
+                                          Fresneaux-Montchevreuil</br>
+                                         Mesnil-Théribus (Oise),France</br></Address></strong></div>
+      <div ref="http://viaf.org/viaf/339150323701609970037"><strong>To:</strong> Albert Dakin Gihon</div>
+            <div><strong>Recieved Date:</strong>unknown</div>
+            <div><strong>Address:</strong>United States</br>
+     <!-- Presumed, based on Carnegie Institute affiliation -->
+             <date>unknown</date>
+    <div class = "view-doc">
+  <!-- View XML file -->
+  <a href="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/main/letters/letter_1905_casstatt_Gihon.xml" target="_blank">
+    <button>View XML File</button>
+  </a>
+
+  <!-- View RDF.ttl file -->
+  <a href="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/main/letters/letter_1905_casstatt_Gihon.ttl" target="_blank">
+    <button>View RDF.ttl File</button>
+  </a>
+</div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/mirador/dist/mirador.min.js"></script>
+  <script>
+    Mirador.viewer({
+      id: "mirador",
+      windows: [
+        {
+          loadedManifest: "https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_12873?manifest=https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_12873",
+          viewType: "ImageView",
+          sideBarPanel: "info",
+          sideBarVisible: false
+        }
+      ],
+      workspace: {
+        type: "mosaic",
+        showZoomControls: true
+      },
+      workspaceControlPanel: {
+        enabled: true
+      }
+    });
+
+    const toggleBtn = document.getElementById("toggleMetadata");
+    const metadataBox = document.getElementById("metadataBox");
+   
+    document.getElementById("backBtn").addEventListener("click", () => {
+      window.history.back();
+    });
+  </script>
+ <script>
+  const pages = document.querySelectorAll('[page]');
+  let currentPage = 0;
+
+  function showPage(index) {
+    pages.forEach((page, i) => {
+      page.style.display = i === index ? 'block' : 'none';
+    });
+
+    // 更新页码显示
+    document.getElementById('pageIndicator').textContent = `Page ${index + 1} of ${pages.length}`;
+
+    // 控制按钮显示隐藏
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (index === 0) {
+      prevBtn.style.display = 'none';
+    } else {
+      prevBtn.style.display = 'inline-block';
+    }
+
+    if (index === pages.length - 1) {
+      nextBtn.style.display = 'none';
+    } else {
+      nextBtn.style.display = 'inline-block';
+    }
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    if (currentPage > 0) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    if (currentPage < pages.length - 1) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  });
+
+  // 初始显示第一页
+  showPage(currentPage);
+</script>
+</body>
+</html>
