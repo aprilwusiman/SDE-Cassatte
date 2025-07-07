@@ -1,0 +1,90 @@
+@base <https://github.com/aprilwusiman/SDE-Cassatte> .
+@prefix crm: <https://www.cidoc-crm.org/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix fabio: <https://sparontologies.github.io/fabio/current/fabio.html> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sde-cas: <https://github.com/aprilwusiman/SDE-Cassatte> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<cassatt> a crm:E21_Person ;
+    rdfs:label "American Painter and Printmaker Impressionist"^^xsd:string ;
+    owl:sameAs "http://viaf.org/viaf/2478969"^^xsd:string ;
+    foaf:member <Impressionists> ;
+    sde-cas:hasfeeling <discomfort>,
+                 <regret>,
+                 <critic>,
+                 <hopeful>;
+    schema:mentions <carnegie_museum>,
+        <Whistler>,
+        <Millet>,
+        <Courbet>,
+        <Corot>,
+        <beatty>.
+
+<Gihon> a crm:E21_Person ;
+    rdfs:label "Painter and Recipient of Cassatt's letter, possibly involved in exhibition organization or critique"^^xsd:string ;
+    owl:sameAs "http://viaf.org/viaf/339150323701609970037"^^xsd:string ;
+    foaf:member <Impressionists>.
+  
+<Impressionists> a foaf:Group
+   owl:sameAs "http://viaf.org/viaf/9148933629554302580"^^xsd:string ;
+   rdfs:label "The Impressionist movement began in France in the 1870s, primarily in Paris, where artists sought to depict modern life and the transient effects of light and atmosphere."^^xsd:string.
+    
+<Corot> a crm:E21_Person ;
+    owl:sameAs "http://viaf.org/viaf/4940255"^^xsd:string ;
+    rdfs:label "French landscape and portrait painter, mentioned as an example of artists rejected by juried exhibitions"^^xsd:string.
+
+<letter_1905_casstatt_Gihon> a fabio:letter ;
+    schema:recipient <Gihon>;
+    dc:creator <cassatt>;
+    dc:issued "1905"^^xsd:date;
+    schema:dateSent "ca.1905"^^xsd:date,
+           dateReceived """unknown"""^^xsd:string;
+    crm:P129_is_about <personal_reflection>
+                      <exhibition>
+    owl:sameAs "https://ids.si.edu/ids/manifest/edanmdm:AAADCD_item_12873".
+
+
+<exhibition> crm:a E5 Event；
+
+
+<Whistler> a crm:E21_Person ;
+    rdfs:label "Renowned American artist who suggested Cassatt's involvement in the Carnegie exhibition jury."^^xsd:string ;
+    owl:sameAs "https://viaf.org/en/viaf/46804212"^^xsd:string ;
+    foaf:member <Impressionists> .
+
+<Millet> a crm:E21_Person ;
+    rdfs:label "Unclear reference—could be Francis Davis Millet or another painter named Miller"^^xsd:string ;
+
+
+<Courbet> a crm:E21_Person ;
+    rdfs:label "French realist painter"^^xsd:string ;
+     owl:sameAs "http://viaf.org/viaf/22160734"^^xsd:string
+
+
+
+<paris> a <E53_Place> ;
+    rdfs:label "gloomy place Cassatt mentioned in the letter said she temporarly left there at the end of 1922."^^xsd:string ;
+    owl:sameAs "http://viaf.org/viaf/158822968"^^xsd:string .
+
+
+
+<carnegie_museum> a schema:Organization ;
+    owl:sameAs "http://viaf.org/viaf/141998508"^^xsd:string .
+
+<regret> a sde-cas:negative ;
+    sde-cas:hasTextValue "I am sorry"^^xsd:string .
+                         "My hopes have proved vain"^^xsd:string .
+                         "regret I cannot be of use to you in this case"^^xsd:string.
+
+<discomfort> a sde-cas:negative ;
+    sde-cas:hasTextValue """I think the whole system wrong""""^^xsd:string .
+
+<critic> a sde-cas:negative ;
+    sde-cas:hasTextValue """system has proved a failure""""^^xsd:string .
+
+<hopeful> a sde-cas:positive;
+    sde-cas: hasTextValue """hope you""""^^xsd:string .
