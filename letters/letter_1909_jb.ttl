@@ -1,5 +1,6 @@
 @base <https://github.com/aprilwusiman/SDE-Cassatte> .
 @prefix crm: <https://www.cidoc-crm.org/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix fabio: <https://sparontologies.github.io/fabio/current/fabio.html> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,30 +8,35 @@
 @prefix sde-cas: <https://github.com/aprilwusiman/SDE-Cassatte> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<Audience> a <schema:Audience> ;
-    <hasfeeling> <gratified>,
+<Audience> a schema:Audience ;
+    sde-cas:hasfeeling <gratified>,
         <pleased> .
 
 <beatty> a crm:E21_Person ;
-    <hasfeeling> <appreciate>,
-        <regret> .
-    schema:worksFor <carnegie_museum>
+    sde-cas:hasfeeling <appreciate>, <regret> ;
+    schema:director <carnegie_museum> ;
+    schema:mentions <Audience> .
 
 <letter_1909> a fabio:letter ;
     owl:sameAs "https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_10023?manifest=https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_10023"^^xsd:string ;
-    schema:recipient <cassatt> .
-    dc:creator <beatty>
-    dc:issued "1909.10.19"^^xsd:date;
-    schema:dateSent "1909.10.19"^^xsd:date
-    schema:dateReceived """unknown"""^^xsd:string
-    crm:P129_is_about <Audience>
-    owl:sameAs "https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_10023?manifest=https://www.aaa.si.edu/manifest/edanmdm:AAADCD_item_10023"
+    schema:recipient <cassatt> ;
+    dc:creator <beatty> ;
+    dc:issued "1909-10-19"^^xsd:date ;
+    schema:dateSent "1909-10-19"^^xsd:date ;
+    schema:dateReceived "unknown"^^xsd:string ;
+    crm:P129_is_about <Audience> .
+
+
     
 <cassatt> a crm:E21_Person ;
     rdfs:label "American Painter and Printmaker Impressionist"^^xsd:string ;
     owl:sameAs "http://viaf.org/viaf/2478969"^^xsd:string ;
     foaf:member <Impressionists> ;
     crm:P74_has_current_or_former_residence <paris> .
+
+<Impressionists> a foaf:Group
+   owl:sameAs "http://viaf.org/viaf/9148933629554302580"^^xsd:string ;
+   rdfs:label "The Impressionist movement began in France in the 1870s, primarily in Paris, where artists sought to depict modern life and the transient effects of light and atmosphere."^^xsd:string.
 
 <carnegie_museum> a schema:Organization ;
     owl:sameAs "http://viaf.org/viaf/141998508"^^xsd:string . 
@@ -44,16 +50,17 @@
     rdfs:label,"the place where letter was written and sent."^^xsd:string ;
     owl:sameAs "http://viaf.org/viaf/133152143"^^xsd:string .
 
-<appreciate> a <sde-cas:positive> ;
-    <hasTextValue> "appreciate."^^xsd:string .
 
-<gratified> a <sde-cas:positive> ;
-    <hasTextValue> "gratified"^^xsd:string .
+<gratified> a sde-cas:positive ;
+    sde-cas:hasTextValue:"gratified"^^xsd:string .
 
 <pleased> a <sde-cas:positive> ;
-    <hasTextValue> "pleased"^^xsd:string .
+    sde-cas:hasTextValue: "pleased"^^xsd:string .
 
-<regret> a <sde-cas:negative> ;
-    <hasTextValue> "regret"^^xsd:string .
+<appreciate> a sde-cas:positive ;
+    sde-cas:hasTextValue "appreciate."^^xsd:string .
+
+<regret> a sde-cas:negative ;
+    sde-cas:hasTextValue "regret"^^xsd:string .
 
 
