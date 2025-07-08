@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About This Project - Mary Cassatt Digital Edition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Georgia, serif;
+      line-height: 1.6;
+      margin: 2rem auto;
+      max-width: 900px;
+      padding: 0 1rem;
+      background: #fdfdfd;
+      color: #333;
+    }
+    h1, h2 {
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #2c3e50;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>About This Project</h1>
+
+  <h2>Project Overview</h2>
+  <p>
+    This digital scholarly edition presents a diplomatic edition of Mary Cassatt’s letters, primarily drawn from the Mary Cassatt Papers held by the Archives of American Art, Smithsonian Institution. Based on individual handwritten manuscripts and typescripts, the edition aims to reproduce the source texts as faithfully as possible—preserving original spelling, punctuation, lineation, and other textual features without normalization. By refraining from editorial intervention, the edition offers a transparent view into the material and linguistic texture of the originals.
+  </p>
+  <p>
+    A curated selection of four letters has been included: a multi-page letter and a pair of letters in direct correspondence, focusing on Cassatt’s professional development, work ethic, and her engagement within the internal dynamics of the late 19th-century art world. This selection demonstrates the feasibility and scholarly potential of the edition’s digital and semantic infrastructure.
+  </p>
+  <p>
+    The edition enhances existing resources by providing high-resolution images compliant with the International Image Interoperability Framework (IIIF), alongside diplomatic transcriptions encoded using the TEI Guidelines. It serves a broad audience—including researchers, students, and the general public—while offering particular value to art historians and scholars interested in the materiality, authorship, and epistolary context of Mary Cassatt’s correspondence.
+  </p>
+
+  <h2>State of the Art</h2>
+  <p>
+    Mary Cassatt (1844–1926), an American painter and printmaker, is renowned for her pivotal role in the French Impressionist movement. As one of the few female artists to exhibit alongside Edgar Degas and Claude Monet, Cassatt developed a unique visual language focused on the domestic lives and emotional experiences of women and children. Trained at the Pennsylvania Academy of the Fine Arts and later in Paris, she consistently challenged prevailing gender norms in both American and European art worlds. Her oeuvre is marked by technical mastery and psychological insight, blending intimate subject matter with compositional innovation.
+  </p>
+  <p>
+    The letters included in this edition offer unique insights into Cassatt’s intellectual life, artistic strategies, and transatlantic cultural exchanges. To support affective analysis, a custom emotional event ontology is introduced. Combined with the use of blank nodes, this allows for nuanced modeling of emotional subtleties and interpretative ambiguity. This semantic infrastructure enables deep knowledge extraction via SPARQL queries and supports exploration of emotional and intellectual networks among historical figures in Cassatt’s artistic milieu.
+  </p>
+  <p>
+    The ontology knowledge graph visualization (Figure 2) is implemented using Python-based tools including RDFLib, NetworkX, and Graphviz. These allow for macro-level exploration of inter-entity connections and support visual interpretative research.
+  </p>
+
+  <h2>Methodology</h2>
+  <p>
+    This edition adopts a diplomatic editorial approach to preserve the textual authenticity of Mary Cassatt’s letters. Original spelling, punctuation, formatting, and material features are retained, ensuring the author’s voice and the historical integrity of the documents. Special attention is paid to manuscript-specific elements such as watermarks, postal stamps, and authorial corrections, which inform both provenance and historical context.
+  </p>
+  <p>
+    The transcription workflow is based on TEI XML, transformed into HTML via XSLT for structured and readable presentation. This hybrid approach ensures both machine-readability and user accessibility, resulting in a multi-layered digital edition that adheres to scholarly standards.
+  </p>
+  <p>
+    To enhance semantic richness, the project implements RDF (Resource Description Framework) to model structured data. Inspired by projects like <em>Vespasiano</em>, RDF triples (subject–predicate–object) articulate semantic relationships among letters and associated entities (people, events, places, institutions). These RDF statements are queryable via SPARQL, enabling users to semantically navigate and explore the corpus.
+  </p>
+
+  <h2>Textual Encoding and Digital Presentation</h2>
+  <p>
+    Following TEI’s diplomatic guidelines, the edition provides precise transcription and structural markup of each letter. It draws methodological inspiration from projects such as the Van Gogh Letters Digital Edition, ensuring alignment with international best practices and long-term interoperability.
+  </p>
+  <p>
+    The digital interface is built with HTML5 and follows a responsive three-column layout optimized for both desktop and mobile:
+  </p>
+  <ul>
+    <li><strong>Left pane:</strong> an embedded Mirador IIIF viewer allows high-resolution zooming, panning, and annotation;</li>
+    <li><strong>Center pane:</strong> the TEI-transcribed text is presented as semantically rich HTML with clear typographic styling;</li>
+    <li><strong>Right pane:</strong> a metadata panel displays structured information on sender, recipient, structure, and inter-letter references, all linked to the underlying semantic graph.</li>
+  </ul>
+  <p>
+    This triadic structure invites multi-perspectival engagement while maintaining interpretive depth and scholarly rigor.
+  </p>
+
+  <h2>Timeline</h2>
+  <p>
+    To support diachronic analysis and narrative understanding, the project integrates a timeline-based visualization that aligns Mary Cassatt’s personal milestones, artistic developments, and historical events with her correspondence. This interactive linear interface enables users to explore letters in their temporal context, revealing the evolution of Cassatt’s career, social network, and historical surroundings.
+  </p>
+  <p>
+    Each letter is visualized as a “letter-card node”, placed according to its date and dynamically linked to key historical anchors—such as exhibitions, relocations, artistic collaborations, and family events. The timeline is semantically enriched through RDF-based metadata, allowing users to trace patterns across people, places, and emotional experiences.
+  </p>
+  <p>
+    This dual-layer narrative—textual and temporal—enhances historical comprehension, supports interpretive storytelling, and fosters scholarly and public engagement with the epistolary corpus.
+  </p>
+
+</body>
+</html>
