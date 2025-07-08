@@ -6,44 +6,68 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
-@prefix sde-cas: <https://github.com/aprilwusiman/SDE-Cassatte> .
+@prefix sde-cas: <https://github.com/aprilwusiman/SDE-Cassatte#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+# Cassatt as a person
 <cassatt> a crm:E21_Person ;
     rdfs:label "American Painter and Printmaker Impressionist"^^xsd:string ;
-    owl:sameAs "http://viaf.org/viaf/2478969"^^xsd:string ;
-    foaf:member <Impressionists> ;
-    sde-cas:hasfeeling <discomfort>,
-                       <regret>.
+    owl:sameAs <http://viaf.org/viaf/2478969> ;
+    foaf:member <Impressionists> .
 
-<letter_1909_mc> a fabio:letter ;
-    owl:sameAs "https://ids.si.edu/ids/manifest/edanmdm:AAADCD_item_6064"^^xsd:string ;
+# Beatty as a person and director at Carnegie Museum
+<beatty> a crm:E21_Person ;
+    schema:jobTitle "Director"^^xsd:string ;
+    schema:worksFor <carnegie_museum> .
+
+# Carnegie Museum as organization
+<carnegie_museum> a schema:Organization ;
+    owl:sameAs <http://viaf.org/viaf/141998508> .
+
+# Exhibition event entity (generic)
+<exhibition> a crm:E5_Event .
+
+# Personal reflection as a custom class
+<personal_reflection> a sde-cas:PersonalReflection .
+
+# Letter by Cassatt sent to Beatty in 1909
+<letter_1909_mc> a fabio:Letter ;
+    owl:sameAs <https://ids.si.edu/ids/manifest/edanmdm:AAADCD_item_6064> ;
     schema:recipient <beatty> ;
     schema:dateSent "1909-09-16"^^xsd:date ;
     schema:dateReceived "unknown"^^xsd:string ;
     dc:creator <cassatt> ;
     dc:issued "1909-09-16"^^xsd:date ;
-    crm:P129_is_about <personal_reflection>,
-                  <exhibition> .
+    crm:P129_is_about <personal_reflection>, <exhibition> ;
 
-<beatty> a crm:E21_Person ;
-    sde-cas:hasfeeling <discomfort>,
-                       <regret> ;
-    schema:Director <carnegie_museum>,
-                     <carnegie_museum> .      
-    
-<exhibition> a crm: E5 Event.
-<personal_reflection> a sde-cas:PersonalReflection.
+    # Link to feeling events contained in the letter
+    sde-cas:hasFeelingEvent _:feeling1, _:feeling2 .
 
-
-<carnegie_museum> a schema:Organization ;
-    owl:sameAs "http://viaf.org/viaf/141998508"^^xsd:string .
+######################################################
+# Feeling entities (feelings and their text values)
+######################################################
 
 <regret> a sde-cas:negative ;
-    sde-cas:hasTextValue  ""With regrets I send"^^xsd:string.
+    sde-cas:hasTextValue "With regrets I send"^^xsd:string .
 
 <discomfort> a sde-cas:negative ;
-    sde-cas:hasTextValue """unpleasant""""^^xsd:string,
-                          """ disagreeable""""^^xsd:string .
+    sde-cas:hasTextValue "unpleasant"^^xsd:string,
+                      "disagreeable"^^xsd:string .
 
+######################################################
+# Feeling Events — link feelings with text and context
+######################################################
 
+# Feeling event of discomfort expressed by Cassatt
+_:feeling1 a sde-cas:FeelingEvent ;
+    sde-cas:feelingHolder <cassatt> ;
+    sde-cas:feeling <discomfort> ;
+    sde-cas:hasTextValue "unpleasant"^^xsd:string ;
+    schema:about <exhibition> .
+
+# Feeling event of regret expressed by Cassatt
+_:feeling2 a sde-cas:FeelingEvent ;
+    sde-cas:feelingHolder <cassatt> ;
+    sde-cas:feeling <regret> ;
+    sde-cas:hasTextValue "With regrets I send"^^xsd:string ;
+    schema:about <exhibition> .
