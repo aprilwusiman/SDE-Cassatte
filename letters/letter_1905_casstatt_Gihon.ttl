@@ -78,7 +78,7 @@
     owl:sameAs "https://ids.si.edu/ids/manifest/edanmdm:AAADCD_item_12873" ;
     
     # Link to feeling events contained in the letter
-    sde-cas:hasFeelingEvent _:feeling1, _:feeling2, _:feeling3, _:feeling4 .
+    sde-cas:hasFeelingEvent _:f_1_1905,  _:f_2_1905, _:f_3_1905,  _:f_4_1905 .
 
 # Exhibition event entity (generic)
 <exhibition> a crm:E5_Event .
@@ -106,28 +106,28 @@
 ######################################################
 
 # Feeling event of discomfort related to the exhibition system
-_:feeling1 a sde-cas:FeelingEvent ;
+ _:f_1_1905 a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <cassatt> ;
     sde-cas:feeling <discomfort> ;
     sde-cas:hasTextValue "I think the whole system wrong"^^xsd:string ;
     schema:about <exhibition> .
 
 # Feeling event of regret expressed in the letter
-_:feeling2 a sde-cas:FeelingEvent ;
+ _:f_2_1905 a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <cassatt> ;
     sde-cas:feeling <regret> ;
     sde-cas:hasTextValue "I am sorry"^^xsd:string ;
     schema:about <exhibition> .
 
 # Feeling event criticizing the exhibition system as a failure
-_:feeling3 a sde-cas:FeelingEvent ;
+ _:f_3_1905 a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <cassatt> ;
     sde-cas:feeling <critic> ;
     sde-cas:hasTextValue "system has proved a failure"^^xsd:string ;
     schema:about <exhibition> .
 
 # Feeling event expressing hope directed towards the recipient
-_:feeling4 a sde-cas:FeelingEvent ;
+ _:f_4_1905 a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <cassatt> ;
     sde-cas:feeling <hopeful> ;
     sde-cas:hasTextValue "hope you"^^xsd:string ;
