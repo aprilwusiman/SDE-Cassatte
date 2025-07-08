@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
       line-height: 1.6;
     }
     header {
-      background-color: #fff;
+      background-color: #ffffff;
       padding: 1.5rem 2rem;
       border-bottom: 1px solid #ddd;
       display: flex;
@@ -62,31 +63,39 @@
       font-size: 0.9rem;
       color: #555;
     }
+
+    .image-placeholder {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin: 2rem 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.image-placeholder img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+
   </style>
 </head>
 <body>
   <header>
-    <h2>Mary Cassatt Letters</h2>
+    <h2>See Cassatt through the Viewer</h2>
     <nav>
+      <a href="https://aprilwusiman.github.io/SDE-Cassatte/timeline.html">Timeline</a>
       <a href="https://aprilwusiman.github.io/SDE-Cassatte/letters.html">Letters</a>
       <a href="https://aprilwusiman.github.io/SDE-Cassatte/graph.html">Knowledge Graph</a>
-      <a href="https://aprilwusiman.github.io/SDE-Cassatte/timeline.html">Timeline</a>
       <a href="https://aprilwusiman.github.io/SDE-Cassatte/about.html">About this Edition</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Mary Cassatt Letters</h1>
-    <p>
-      <strong>Mary Cassatt's Letters</strong> is a scholarly digital edition presenting the personal and artistic correspondence of Mary Cassatt, with a special focus on her perspectives on the art industry.
-      The project integrates <strong>TEI</strong> encoding, <strong>IIIF</strong> image technology, and <strong>RDF</strong>-based semantic modeling to explore her letters in depth.
-    </p>
-    <p>
-      These letters offer insight into her critical views on art exhibitions, personal artistic pursuits,and her intricate relationships within the Impressionist circle.
-    </p>
-  </section>
-
   <section class="section">
+    <h2>Scholarly Digital Edition-Letters of Mary Cassatt</h2>
     <h2>About Mary Cassatt</h2>
     <div class="image-placeholder"> <img src="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/refs/heads/main/Mary-Cassatt-Lydia-Seated-in-the-Garden-with-a-Dog-in-Her-Lap.jpg" alt="Mary Cassatt - Lydia Seated in the Garden with a Dog in Her Lap" /></div>
     <p>
@@ -98,9 +107,9 @@
   </section>
 
   <section class="section">
-    <h2>About the Letters</h2>
+    <h2>About this Project</h2>
     <p>
-      The letters presented in this edition are drawn from  the Archives of American Art, Smithsonian Institution. These letters span topics such as art exhibitions, professional challenges, personal opinions on the art industry.
+     This digital scholarly edition faithfully presents diplomatic transcriptions of selected Mary Cassatt letters from the Archives of American Art, preserving their original textual features without editorial normalization. It combines high-resolution IIIF images and TEI-encoded texts to support research on Cassatt’s professional life and 19th-century art world engagement, offering valuable resources for scholars and the public alike.
     </p>
     <p>
       For more information on the full archival collection, see the <a href="https://sirismm.si.edu/EADpdfs/AAA.cassmarl.pdf" target="_blank">finding aid</a> at the Smithsonian Institution.
