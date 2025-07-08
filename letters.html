@@ -6,11 +6,27 @@
 <title>Mary Cassatt Letters</title>
 <style>
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 20px;
-    background-color: #f5f5f5;
-    color: #333;
+     margin: 0;
+      font-family: Georgia, serif;
+      background-color: #f7f4f1;
+      color: #2c2c2c;
+      line-height: 1.6;
   }
+
+  header {
+      background-color: #ffffff;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #2c2c2c;
+      font-weight: bold;
+    }
 
   h1 {
     text-align: center;
@@ -64,7 +80,7 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
   }
 
@@ -141,91 +157,138 @@
 </style>
 </head>
 <body>
+  <header>
+    <h2>See Cassatt through the Viewer</h2>
+    <nav>
+      <a href="https://aprilwusiman.github.io/SDE-Cassatte/index.html">HomePage</a>
+      <a href="https://aprilwusiman.github.io/SDE-Cassatte/timeline.html">Timeline</a>
+      <a href="https://aprilwusiman.github.io/SDE-Cassatte/graph.html">Knowledge Graph</a>
+      <a href="https://aprilwusiman.github.io/SDE-Cassatte/about.html">About this Edition</a>
+    </nav>
+  </header>
 
-<h1>Mary Cassatt Letters</h1>
+  <h1>Mary Cassatt Letters</h1>
 
-<!-- 过滤栏 -->
-<div class="filter-bar">
-  <div>
-    <label for="filter-place">Place:</label>
-    <select id="filter-place">
-      <option value="">All</option>
-      <option value="Paris">Paris</option>
-      <option value="New York">New York</option>
-      <option value="Philadelphia">Philadelphia</option>
-    </select>
+  <!-- 过滤栏 -->
+  <div class="filter-bar">
+    <div>
+      <label for="filter-place">Place:</label>
+      <select id="filter-place">
+        <option value="">All</option>
+        <option value="Paris">Paris</option>
+        <option value="Pittsburgh">Pittsburgh</option>
+        <option value="Nice">Nice</option>
+      </select>
+    </div>
+    <div>
+      <label for="filter-correspondent">Correspondent:</label>
+      <select id="filter-correspondent">
+        <option value="">All</option>
+        <option value="Albert Dakin Gihon">Albert Dakin Gihon</option>
+        <option value="Homer Saint-Gaudens">Homer Saint-Gaudens</option>
+        <option value="John Wesley Beatty">John Wesley Beatty</option>
+      </select>
+    </div>
+    <div>
+      <label for="filter-theme">Theme:</label>
+      <select id="filter-theme">
+        <option value="">All</option>
+        <option value="Art Exhibition">Art Exhibition</option>
+        <option value="Art Work">Art Work</option>
+        <option value="Personal Reflection">Personal Reflection</option>
+      </select>
+    </div>
+    <div>
+      <label for="filter-period">Period:</label>
+      <select id="filter-period">
+        <option value="">All</option>
+        <option value="1905">1905</option>
+        <option value="1909">1909</option>
+        <option value="1922">1922</option>
+      </select>
+    </div>
   </div>
-  <div>
-    <label for="filter-correspondent">Correspondent:</label>
-    <select id="filter-correspondent">
-      <option value="">All</option>
-      <option value="Albert D. Gihon">Albert D. Gihon</option>
-      <option value="Berthe Morisot">Berthe Morisot</option>
-      <option value="Berthe Morisot">Homer Saint-Gaudens</option>
-    </select>
-  </div>
-  <div>
-    <label for="filter-theme">Theme:</label>
-    <select id="filter-theme">
-      <option value="">All</option>
-      <option value="Art Exhibition">Art Exhibition</option>
-      <option value="Art Work">Art Work</option>
-      <option value="Personal Reflection">Personal Reflection</option>
-    </select>
-  </div>
-  <div>
-    <label for="filter-period">Period:</label>
-    <select id="filter-period">
-      <option value="">All</option>
-      <option value="1904-1905">1905</option>
-      <option value="1906-1907">1909</option>
-      <option value="1908-1909">1922</option>
-    </select>
-  </div>
-</div>
 
-<div class="cards-container">
-      <div class="letter-card" data-place="Paris" data-correspondent="Albert Dakin Gihon" data-theme="Personal Reflection"  data-theme="Exhibition" data-period="1904-1905">
-      <img src="images/letter1.jpg" alt="Letter 1 Image" />
+  <div class="cards-container">
+    <div class="letter-card" data-place="Paris" data-correspondent="Albert Dakin Gihon" data-theme="Art Exhibition" data-period="1904-1905">
+      <img src="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/refs/heads/main/2-AAA-AAA_carninst_33517.jpg" alt="Letter 1 Image" />
       <div class="letter-content">
-      <h3>Letter to Albert Dakin Gihon</h3>
-      <div class="date">Sep 13, 1905</div>
-      <p> letter reflects Cassatt's refusal to join an art jury</p>
-      <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1909_mc.html">Read More</a>
+        <h3>Letter to Albert Dakin Gihon</h3>
+        <div class="date">Sep 13, 1905</div>
+        <p>Letter reflects Cassatt's refusal to join an art jury.</p>
+        <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1909_mc.html">Read More</a>
+      </div>
+    </div>
+
+    <div class="letter-card" data-place="Paris" data-correspondent="John Wesley Beatty" data-theme="Personal Reflection" data-period="1909">
+      <img src="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/refs/heads/main/2-AAA-AAA_carninst_33517.jpg" alt="Letter 2 Image" />
+      <div class="letter-content">
+        <h3>Letter to John Wesley Beatty</h3>
+        <div class="date">Sep 16, 1909</div>
+        <p>Cassatt replies to Beatty's request for a photograph.</p>
+        <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1909_mc.html">Read More</a>
+      </div>
+    </div>
+
+    <div class="letter-card" data-place="Pittsburgh" data-correspondent="John Wesley Beatty" data-theme="Art Exhibition" data-period="1909">
+      <img src="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/refs/heads/main/2-AAA-AAA_carninst_33517.jpg" alt="Letter 3 Image" />
+      <div class="letter-content">
+        <h3>Letter from John Wesley Beatty</h3>
+        <div class="date">Oct 19, 1909</div>
+        <p>Beatty responds to Cassatt's Oct. 6th letter.</p>
+        <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1909_jb.html">Read More</a>
+      </div>
+    </div>
+
+    <div class="letter-card" data-place="Nice" data-correspondent="Homer Saint-Gaudens" data-theme="Art Work" data-period="1922">
+      <img src="https://raw.githubusercontent.com/aprilwusiman/SDE-Cassatte/refs/heads/main/2-AAA-AAA_carninst_33517.jpg" alt="Letter 4 Image" />
+      <div class="letter-content">
+        <h3>Letter to Homer Saint-Gaudens</h3>
+        <div class="date">Dec 12, 1922</div>
+        <p>Cassatt tells Saint-Gaudens about Degas' and Berthe Morisot's impressions of her painting.</p>
+        <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1922.html">Read More</a>
+      </div>
     </div>
   </div>
 
-   <div class="letter-card" data-place="Paris" data-correspondent="John Wesley Beatty" data-theme="Personal Reflection" data-period="1904-1905">
-    <img src="images/letter1.jpg" alt="Letter 1 Image" />
-    <div class="letter-content">
-      <h3>Letter to John Wesley Beatty to</h3>
-      <div class="date">Sep 16, 1909</div>
-      <p>Cassatt replies to Beatty's request for a photograph</p>
-      <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1909_mc.html">Read More</a>
-    </div>
-  </div>
+<script>
+  const filterPlace = document.getElementById('filter-place');
+  const filterCorrespondent = document.getElementById('filter-correspondent');
+  const filterTheme = document.getElementById('filter-theme');
+  const filterPeriod = document.getElementById('filter-period');
 
-  <div class="letter-card" data-place="Pittsburgh" data-correspondent="John Wesley Beatty" data-theme="Art Exhibition" data-period="1904-1905">
-    <img src="images/letter1.jpg" alt="Letter 1 Image" />
-    <div class="letter-content">
-      <h3>Letter from John Wesley Beatty to</h3>
-      <div class="date">Oct 19, 1909</div>
-      <p></p> Beatty responds to Cassatt's Oct. 6th </p>
-      <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1909_jb.html">Read More</a>
-    </div>
-  </div>
+  const cards = document.querySelectorAll('.letter-card');
 
+  function filterCards() {
+    const placeVal = filterPlace.value;
+    const correspondentVal = filterCorrespondent.value;
+    const themeVal = filterTheme.value;
+    const periodVal = filterPeriod.value;
 
-    <div class="letter-card" data-place="Paris" data-correspondent="Homer Saint-Gaudens" data-theme="Art Work" data-period="19022">
-    <img src="images/letter1.jpg" alt="Letter 1 Image" />
-    <div class="letter-content">
-      <h3>Letter to Homer Saint-Gaudens</h3>
-      <div class="date">Dec 12, 1922</div>
-      <p> Cassatt tells Saint-Gaudens about Degas' and Berthe Morisot's impressions of her painting .</p>
-      <a href="https://aprilwusiman.github.io/SDE-Cassatte/letter_1922.html">">Read More</a>
-    </div>
-  </div>
+    cards.forEach(card => {
+      const place = card.getAttribute('data-place') || '';
+      const correspondent = card.getAttribute('data-correspondent') || '';
+      const theme = card.getAttribute('data-theme') || '';
+      const period = card.getAttribute('data-period') || '';
 
+      // 判断是否符合所有过滤条件
+      const matchPlace = !placeVal || place === placeVal;
+      const matchCorrespondent = !correspondentVal || correspondent === correspondentVal;
+      const matchTheme = !themeVal || theme === themeVal;
+      const matchPeriod = !periodVal || period === periodVal;
 
+      if (matchPlace && matchCorrespondent && matchTheme && matchPeriod) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
 
-
+  filterPlace.addEventListener('change', filterCards);
+  filterCorrespondent.addEventListener('change', filterCards);
+  filterTheme.addEventListener('change', filterCards);
+  filterPeriod.addEventListener('change', filterCards);
+</script>
+</body>
+</html>
