@@ -18,28 +18,28 @@
     schema:dateSent "1909-10-19"^^xsd:date ;
     schema:dateReceived "unknown"^^xsd:string ;
     crm:P129_is_about <Audience> ;
-    sde-cas:hasFeelingEvent _:feeling1, _:feeling2, _:feeling3, _:feeling4 .
+    sde-cas:hasFeelingEvent  _:f_1_1909jb,_:f_2_1909jb,_:f_3_1909jb,_:f_4_1909jb .
 
 # Feeling event - Beatty's regret
-_:feeling1 a sde-cas:FeelingEvent ;
+_:f_1_1909jb a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <beatty> ;
     sde-cas:feeling <regret> ;
     sde-cas:hasTextValue "regret"^^xsd:string .
 
 # Feeling event - Beatty's appreciation
-_:feeling2 a sde-cas:FeelingEvent ;
+_:f_2_1909jb a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <beatty> ;
     sde-cas:feeling <appreciate> ;
     sde-cas:hasTextValue "appreciate."^^xsd:string .
 
 # Feeling event - Audience's gratified feeling
-_:feeling3 a sde-cas:FeelingEvent ;
+_:f_3_1909jb a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <Audience> ;
     sde-cas:feeling <gratified> ;
     sde-cas:hasTextValue "gratified"^^xsd:string .
 
 # Feeling event - Audience's pleased feeling
-_:feeling4 a sde-cas:FeelingEvent ;
+_:f_4_1909jb a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <Audience> ;
     sde-cas:feeling <pleased> ;
     sde-cas:hasTextValue "pleased"^^xsd:string .
