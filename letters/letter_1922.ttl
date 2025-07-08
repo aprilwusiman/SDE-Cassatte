@@ -1,3 +1,4 @@
+@base <https://github.com/aprilwusiman/SDE-Cassatte> .
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -9,70 +10,16 @@
 @prefix fabio: <http://purl.org/spar/fabio/> .
 @prefix E53_Place: <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
 
-
-
+# Main person: Mary Cassatt
 <cassatt> a crm:E21_Person ;
     rdfs:label "American Painter and Printmaker Impressionist"^^xsd:string ;
     owl:sameAs <http://viaf.org/viaf/2478969> ;
     foaf:member <Impressionists> ;
-    sde-cas:hasfeeling <hopeful>, <regret> ;
-    schema:mentions <carnegie_museum>,
-        <degas>,
-        <durand_ruel>,
-        <morisot>,
-        <mrs_gaudens>,
-        <painting_1891>,
-        <paris>,
-        <rome> ;
+    sde-cas:hasFeeling <hopeful>, <regret> ;
+    schema:mentions <carnegie_museum>, <degas>, <durand_ruel>, <morisot>, <mrs_gaudens>, <painting_1891>, <paris>, <rome> ;
     crm:P74_has_current_or_former_residence <villa_angeletto> .
 
-<gaudens> a crm:E21_Person ;
-    owl:sameAs <http://viaf.org/viaf/48387789> ;
-    schema:director <carnegie_museum> .
-
-<degas> a crm:E21_Person ;
-    rdfs:label "French Impressionist artist"^^xsd:string ;
-    owl:sameAs <http://viaf.org/viaf/41863744> ;
-    foaf:member <Impressionists> .
-
-<morisot> a crm:E21_Person ;
-    rdfs:label "French Impressionist painter"^^xsd:string ;
-    owl:sameAs <http://viaf.org/viaf/19789146> ;
-    foaf:member <Impressionists> .
-
-<mrs_gaudens> a crm:E21_Person ;
-    rdfs:label "Wife of Homer Saint-Gaudens"^^xsd:string ;
-    schema:spouse <gaudens> .
-
-<Impressionists> a foaf:Group ;
-    rdfs:label "The Impressionist movement of artists in late 19th century"^^xsd:string .
-
-
-
-<carnegie_museum> a schema:Organization ;
-    owl:sameAs <http://viaf.org/viaf/141998508> .
-
-<durand_ruel> a schema:Organization ;
-    rdfs:label "Parisian gallery supporting Impressionists"^^xsd:string ;
-    owl:sameAs <http://viaf.org/viaf/153354503> .
-
-<villa_angeletto> a crm:E53_Place ;
-    rdfs:label "Temporary residence of Cassatt in late 1922"^^xsd:string .
-
-<paris> a crm:E53_Place ;
-    rdfs:label "Gloomy place Cassatt mentioned in the letter said she temporarily left there at the end of 1922."^^xsd:string ;
-    owl:sameAs <http://viaf.org/viaf/158822968> .
-
-<rome> a crm:E53_Place ;
-    rdfs:label "In this letter, this place is presumed location of Gaudens (recipient)."^^xsd:string ;
-    owl:sameAs <http://viaf.org/viaf/243431474> .
-
-
-
-<painting_1891> a crm:E36_Visual_Item ;
-    owl:sameAs <https://collection.carnegieart.org/objects/89649ae7-a33d-4f21-b309-ac7e0633b527> .
-
-
+# Definition of feeling categories (emotion vocabularies)
 <hopeful> a sde-cas:positive ;
     sde-cas:hasTextValue "May it bring you all this troubled world can give of good."^^xsd:string .
 
@@ -82,6 +29,7 @@
 <regret> a sde-cas:negative ;
     sde-cas:hasTextValue "regret"^^xsd:string .
 
+# Letter entity
 <letter_1922> a fabio:Letter ;
     schema:recipient <gaudens> ;
     dc:creator <cassatt> ;
@@ -89,4 +37,32 @@
     schema:dateSent "1922-12-28"^^xsd:date ;
     schema:dateReceived "unknown"^^xsd:string ;
     crm:P129_is_about <painting_1891> ;
-    owl:sameAs <https://www.aaa.si.edu/collections/items/detail/mary-cassatt-letter-to-homer-saintgaude
+    owl:sameAs <https://www.aaa.si.edu/collections/items/detail/mary-cassatt-letter-to-homer-saintgaudens> ;
+
+    # Links to multiple feeling events expressed in the letter
+    sde-cas:hasFeelingEvent _:feeling1, _:feeling2, _:feeling3 .
+
+######################################################
+# Detailed Feeling Events described as blank nodes
+######################################################
+
+# Feeling event 1: Hopefulness expressed towards the recipient, with positive expectation
+_:feeling1 a sde-cas:FeelingEvent ;
+    sde-cas:feelingHolder <cassatt> ;
+    sde-cas:feeling <hopeful> ;
+    sde-cas:hasTextValue "May it bring you all this troubled world can give of good."^^xsd:string ;
+    schema:about <gaudens> .
+
+# Feeling event 2: Neutral understanding, possibly about a certain opinion or fact
+_:feeling2 a sde-cas:FeelingEvent ;
+    sde-cas:feelingHolder <cassatt> ;
+    sde-cas:feeling <neutral> ;
+    sde-cas:hasTextValue "I can understand that"^^xsd:string ;
+    schema:about <painting_1891> .
+
+# Feeling event 3: Regret, expressing some form of loss or disappointment
+_:feeling3 a sde-cas:FeelingEvent ;
+    sde-cas:feelingHolder <cassatt> ;
+    sde-cas:feeling <regret> ;
+    sde-cas:hasTextValue "regret"^^xsd:string ;
+    schema:about <painting_1891> .
