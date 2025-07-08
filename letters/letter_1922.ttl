@@ -40,28 +40,28 @@
     owl:sameAs <https://www.aaa.si.edu/collections/items/detail/mary-cassatt-letter-to-homer-saintgaudens> ;
 
     # Links to multiple feeling events expressed in the letter
-    sde-cas:hasFeelingEvent _:feeling1, _:feeling2, _:feeling3 .
+    sde-cas:hasFeelingEvent _:f_1_1922,_:f_2_1922, _:f_3_1922_mc .
 
 ######################################################
 # Detailed Feeling Events described as blank nodes
 ######################################################
 
 # Feeling event 1: Hopefulness expressed towards the recipient, with positive expectation
-_:feeling1 a sde-cas:FeelingEvent ;
+ _:f_1_1922 a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <cassatt> ;
     sde-cas:feeling <hopeful> ;
     sde-cas:hasTextValue "May it bring you all this troubled world can give of good."^^xsd:string ;
     schema:about <gaudens> .
 
 # Feeling event 2: Neutral understanding, possibly about a certain opinion or fact
-_:feeling2 a sde-cas:FeelingEvent ;
+ _:f_2_1922 a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <cassatt> ;
     sde-cas:feeling <neutral> ;
     sde-cas:hasTextValue "I can understand that"^^xsd:string ;
     schema:about <painting_1891> .
 
 # Feeling event 3: Regret, expressing some form of loss or disappointment
-_:feeling3 a sde-cas:FeelingEvent ;
+ _:f_3_1922 a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <cassatt> ;
     sde-cas:feeling <regret> ;
     sde-cas:hasTextValue "regret"^^xsd:string ;
