@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>About This Project - Mary Cassatt Digital Edition</title>
+  <title>About This Project </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Georgia, serif;
       line-height: 1.6;
       margin: 2rem auto;
-      max-width: 900px;
       padding: 0 1rem;
       background: #fdfdfd;
       color: #333;
@@ -44,6 +43,13 @@
       margin-bottom: 1rem;
       text-align: justify;
     }
+    .text{font-family: Georgia, serif;
+      max-width: 700px;
+      line-height: 1.6;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background: #fdfdfd;
+      color: #333;}
   </style>
 </head>
 <body>
@@ -56,7 +62,8 @@
       <a href="https://aprilwusiman.github.io/SDE-Cassatte/graph.html">Knowledge Graph</a>
     </nav>
   </header>
-  <h1>About This Project</h1>
+ <div class="text">
+   <h1>About This Project</h1>
 
   <h2>Project Overview</h2>
   <p>
@@ -117,6 +124,9 @@
   <p>
     This dual-layer narrative—textual and temporal—enhances historical comprehension, supports interpretive storytelling, and fosters scholarly and public engagement with the epistolary corpus.
   </p>
-
+  <h2>Knowledge Graph and Semantic Structure</h2> 
+  <p>The knowledge graph integrates well-established ontologies including CIDOC CRM, Dublin Core, FOAF, Schema.org, and Fabio, ensuring strong semantic alignment with cultural heritage standards. A custom namespace, *sde-cas:*, extends this framework by modeling nuanced emotional states, emotional events, and personal reflections extracted from the letters, complementing standard vocabularies. Principal individuals such as Mary Cassatt and relevant artist groups are represented with authoritative VIAF identifiers to enhance interoperability across datasets. Correspondence items are defined as *fabio:Letter* instances, linked with senders, recipients, and dates, while emotional events are richly described and connected to their respective subjects via specific properties. Institutions and locations are carefully modeled and linked to external authority records, further improving data integration. This semantic architecture supports sophisticated SPARQL querying and meaningful exploration within the linked data ecosystem, culminating in a comprehensive knowledge graph of Mary Cassatt’s epistolary network. Visualization of the graph employs Python-based tools such as RDFLib, NetworkX, and PyVis, enabling interactive and insightful examination of the complex interrelations within the corpus.</p>
+   <h2>Conclusion</h2> <p>This project demonstrates how combining diplomatic editorial practices with advanced semantic modeling and visualization can deepen scholarly engagement with historical correspondence. By preserving the textual and material authenticity of Mary Cassatt’s letters and embedding them in a rich semantic infrastructure, the edition facilitates multifaceted research—spanning textual analysis, affective study, and network exploration—while making the content accessible to a broad audience. The integration of linked open data principles and interactive tools exemplifies a forward-looking approach to digital humanities editions, providing a scalable model for future epistolary projects in cultural heritage scholarship.</p>
+</div>
 </body>
 </html>
