@@ -41,7 +41,7 @@
     crm:P129_is_about <personal_reflection>, <exhibition> ;
 
     # Link to feeling events contained in the letter
-    sde-cas:hasFeelingEvent _:feeling1, _:feeling2 .
+    sde-cas:hasFeelingEvent _:f_1_1909_mc, _:f_2_1902_mc.
 
 ######################################################
 # Feeling entities (feelings and their text values)
@@ -59,14 +59,14 @@
 ######################################################
 
 # Feeling event of discomfort expressed by Cassatt
-_:feeling1 a sde-cas:FeelingEvent ;
+_:f_1_1909_mc a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <cassatt> ;
     sde-cas:feeling <discomfort> ;
     sde-cas:hasTextValue "unpleasant"^^xsd:string ;
     schema:about <exhibition> .
 
 # Feeling event of regret expressed by Cassatt
-_:feeling2 a sde-cas:FeelingEvent ;
+_:f_2_1902_mc a sde-cas:FeelingEvent ;
     sde-cas:feelingHolder <cassatt> ;
     sde-cas:feeling <regret> ;
     sde-cas:hasTextValue "With regrets I send"^^xsd:string ;
